@@ -1,0 +1,280 @@
+{
+  "US": {
+    "name": "United States",
+    "phone_region": "US",
+    "timezone": "America/Chicago",
+    "units": "imperial",
+    "languages": [
+      "en",
+      "es",
+      "ur"
+    ],
+    "default_lang": "en",
+    "primary_emergency_number": "911",
+    "emergency_numbers": [
+      {
+        "key": "emergency",
+        "label": {
+          "en": "Call 911",
+          "es": "Llamar al 911",
+          "ur": "911 پر کال کریں"
+        },
+        "number": "911"
+      }
+    ],
+    "ambulance_call_sign_prefix": "EMS-HOU",
+    "demo_city": {
+      "name": "Houston, TX",
+      "center": [
+        29.7604,
+        -95.3698
+      ],
+      "bbox": [
+        29.52,
+        -95.79,
+        30.11,
+        -95.01
+      ],
+      "zoom": 13
+    }
+  },
+  "PK": {
+    "name": "Pakistan",
+    "phone_region": "PK",
+    "timezone": "Asia/Karachi",
+    "units": "metric",
+    "languages": [
+      "ur",
+      "en"
+    ],
+    "default_lang": "ur",
+    "primary_emergency_number": "1122",
+    "emergency_numbers": [
+      {
+        "key": "rescue",
+        "label": {
+          "en": "Rescue 1122",
+          "ur": "ریسکیو 1122"
+        },
+        "number": "1122"
+      },
+      {
+        "key": "police",
+        "label": {
+          "en": "Police 15",
+          "ur": "پولیس 15"
+        },
+        "number": "15"
+      },
+      {
+        "key": "edhi",
+        "label": {
+          "en": "Edhi 115",
+          "ur": "ایدھی 115"
+        },
+        "number": "115"
+      },
+      {
+        "key": "fire",
+        "label": {
+          "en": "Fire 16",
+          "ur": "فائر 16"
+        },
+        "number": "16"
+      }
+    ],
+    "ambulance_call_sign_prefix": "R1122-KHI",
+    "demo_city": {
+      "name": "Lahore",
+      "center": [
+        31.5204,
+        74.3587
+      ],
+      "bbox": [
+        31.38,
+        74.2,
+        31.62,
+        74.45
+      ],
+      "zoom": 13
+    }
+  },
+  "CA": {
+    "name": "Canada",
+    "phone_region": "CA",
+    "timezone": "America/Toronto",
+    "units": "metric",
+    "languages": [
+      "en",
+      "es",
+      "ur"
+    ],
+    "default_lang": "en",
+    "primary_emergency_number": "911",
+    "emergency_numbers": [
+      {
+        "key": "emergency",
+        "label": {
+          "en": "Call 911",
+          "es": "Llamar al 911",
+          "ur": "911 پر کال کریں"
+        },
+        "number": "911"
+      }
+    ],
+    "ambulance_call_sign_prefix": "EMS",
+    "demo_city": null
+  },
+  "MX": {
+    "name": "Mexico",
+    "phone_region": "MX",
+    "timezone": "America/Mexico_City",
+    "units": "metric",
+    "languages": [
+      "es",
+      "en"
+    ],
+    "default_lang": "es",
+    "primary_emergency_number": "911",
+    "emergency_numbers": [
+      {
+        "key": "emergency",
+        "label": {
+          "en": "Call 911",
+          "es": "Llamar al 911"
+        },
+        "number": "911"
+      }
+    ],
+    "ambulance_call_sign_prefix": "EMS",
+    "demo_city": null
+  },
+  "GB": {
+    "name": "United Kingdom",
+    "phone_region": "GB",
+    "timezone": "Europe/London",
+    "units": "imperial",
+    "languages": [
+      "en",
+      "ur",
+      "es"
+    ],
+    "default_lang": "en",
+    "primary_emergency_number": "999",
+    "emergency_numbers": [
+      {
+        "key": "emergency",
+        "label": {
+          "en": "Call 999",
+          "ur": "999 پر کال کریں",
+          "es": "Llamar al 999"
+        },
+        "number": "999"
+      },
+      {
+        "key": "intl",
+        "label": {
+          "en": "Call 112",
+          "ur": "112 پر کال کریں",
+          "es": "Llamar al 112"
+        },
+        "number": "112"
+      }
+    ],
+    "ambulance_call_sign_prefix": "EMS",
+    "demo_city": null
+  },
+  "IN": {
+    "name": "India",
+    "phone_region": "IN",
+    "timezone": "Asia/Kolkata",
+    "units": "metric",
+    "languages": [
+      "en",
+      "ur"
+    ],
+    "default_lang": "en",
+    "primary_emergency_number": "112",
+    "emergency_numbers": [
+      {
+        "key": "emergency",
+        "label": {
+          "en": "Emergency 112",
+          "ur": "ایمرجنسی 112"
+        },
+        "number": "112"
+      },
+      {
+        "key": "ambulance",
+        "label": {
+          "en": "Ambulance 108",
+          "ur": "ایمبولینس 108"
+        },
+        "number": "108"
+      }
+    ],
+    "ambulance_call_sign_prefix": "EMS",
+    "demo_city": null
+  },
+  "AU": {
+    "name": "Australia",
+    "phone_region": "AU",
+    "timezone": "Australia/Sydney",
+    "units": "metric",
+    "languages": [
+      "en",
+      "es",
+      "ur"
+    ],
+    "default_lang": "en",
+    "primary_emergency_number": "000",
+    "emergency_numbers": [
+      {
+        "key": "emergency",
+        "label": {
+          "en": "Call 000",
+          "es": "Llamar al 000",
+          "ur": "000 پر کال کریں"
+        },
+        "number": "000"
+      },
+      {
+        "key": "intl",
+        "label": {
+          "en": "Call 112",
+          "es": "Llamar al 112",
+          "ur": "112 پر کال کریں"
+        },
+        "number": "112"
+      }
+    ],
+    "ambulance_call_sign_prefix": "EMS",
+    "demo_city": null
+  },
+  "DEFAULT": {
+    "name": "International",
+    "phone_region": null,
+    "timezone": null,
+    "units": "metric",
+    "languages": [
+      "en",
+      "es",
+      "ur"
+    ],
+    "default_lang": "en",
+    "primary_emergency_number": "112",
+    "emergency_numbers": [
+      {
+        "key": "intl",
+        "label": {
+          "en": "Emergency 112",
+          "es": "Emergencias 112",
+          "ur": "ایمرجنسی 112"
+        },
+        "number": "112"
+      }
+    ],
+    "ambulance_call_sign_prefix": "EMS",
+    "demo_city": null
+  }
+}

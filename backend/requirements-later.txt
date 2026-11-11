@@ -1,0 +1,4 @@
+# Tier L (not installed in the 3-hour build)
+twilio==9.12.0
+resend==2.49.1
+pywebpush==2.5.0

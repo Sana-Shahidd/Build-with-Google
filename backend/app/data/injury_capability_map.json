@@ -1,0 +1,124 @@
+{
+  "gunshot": {
+    "capabilities": [
+      "trauma"
+    ],
+    "specialties": [
+      "trauma_surgeon",
+      "anesthetist"
+    ],
+    "first_aid": "bleeding"
+  },
+  "blast_shrapnel": {
+    "capabilities": [
+      "trauma"
+    ],
+    "specialties": [
+      "trauma_surgeon",
+      "general_surgeon",
+      "anesthetist"
+    ],
+    "first_aid": "bleeding"
+  },
+  "burns": {
+    "capabilities": [
+      "burns"
+    ],
+    "specialties": [
+      "burn_specialist"
+    ],
+    "first_aid": "burns"
+  },
+  "fracture": {
+    "capabilities": [
+      "orthopedic"
+    ],
+    "specialties": [
+      "orthopedic_surgeon"
+    ],
+    "first_aid": "fracture"
+  },
+  "head_injury": {
+    "capabilities": [
+      "neuro"
+    ],
+    "specialties": [
+      "neurosurgeon"
+    ],
+    "first_aid": "head_injury"
+  },
+  "bleeding": {
+    "capabilities": [
+      "trauma"
+    ],
+    "specialties": [
+      "trauma_surgeon"
+    ],
+    "first_aid": "bleeding"
+  },
+  "crush": {
+    "capabilities": [
+      "trauma",
+      "orthopedic"
+    ],
+    "specialties": [
+      "trauma_surgeon",
+      "orthopedic_surgeon"
+    ],
+    "first_aid": "crush"
+  },
+  "smoke_inhalation": {
+    "capabilities": [
+      "general"
+    ],
+    "specialties": [
+      "emergency_physician"
+    ],
+    "first_aid": "smoke"
+  },
+  "drowning": {
+    "capabilities": [
+      "general"
+    ],
+    "specialties": [
+      "emergency_physician"
+    ],
+    "first_aid": "drowning"
+  },
+  "cardiac": {
+    "capabilities": [
+      "cardiac"
+    ],
+    "specialties": [
+      "cardiologist"
+    ],
+    "first_aid": "cardiac"
+  },
+  "unconscious": {
+    "capabilities": [
+      "general"
+    ],
+    "specialties": [
+      "emergency_physician"
+    ],
+    "first_aid": "unconscious"
+  },
+  "breathing_difficulty": {
+    "capabilities": [
+      "general"
+    ],
+    "specialties": [
+      "emergency_physician"
+    ],
+    "first_aid": "breathing"
+  },
+  "unknown": {
+    "capabilities": [
+      "general"
+    ],
+    "specialties": [
+      "emergency_physician"
+    ],
+    "first_aid": "call_help"
+  }
+}

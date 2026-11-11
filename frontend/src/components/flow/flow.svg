@@ -1,0 +1,94 @@
+<svg id="diagram" viewBox="0 -24 1160 712" role="img" aria-label="Golden Minute data flow: reporter and SMS feed the API and orchestrator, which runs Intake, Verification, Triage, Dispatch and Hospital Prep agents; all their actions pass through a guardrail layer to police, EMS, hospitals, fire, doctors and the public; acknowledgements return to the API; agent activity is stored in Supabase and streamed to the dashboard; the Debrief agent runs on close.">
+        <defs>
+          <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="arrowhead" d="M0,0 L10,5 L0,10 z"/></marker>
+          <marker id="arrowOn" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="arrowhead on" d="M0,0 L10,5 L0,10 z"/></marker>
+          <marker id="arrowOk" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="arrowhead ok" d="M0,0 L10,5 L0,10 z"/></marker>
+        </defs>
+
+        <!-- zone labels -->
+        <text class="zone" x="20" y="92">REPORTERS</text>
+        <text class="zone" x="240" y="92">BACKEND</text>
+        <text class="zone" x="430" y="30">CORE AGENTS · openai-agents SDK</text>
+        <text class="zone" x="880" y="30">RESPONDERS</text>
+
+        <!-- ack loop over the top -->
+        <path id="e-ack" class="edge" d="M995 40 L995 -6 L310 -6 L310 108"/>
+        <text id="l-ack" class="elabel" x="650" y="-11" text-anchor="middle">acknowledge: responder link ✅ · signed link · keypad 1</text>
+
+        <!-- reporters -->
+        <g id="n-reporter" class="node"><rect x="20" y="104" width="170" height="78" rx="8"/><text class="t1" x="34" y="130">Reporter app (PWA)</text><text class="t2" x="34" y="148">voice · photo · text · SOS</text><text class="t2" x="34" y="166">EN · ES · اردو · offline queue</text></g>
+        <g id="n-sms" class="node"><rect x="20" y="206" width="170" height="58" rx="8"/><text class="t1" x="34" y="230">SMS / missed call</text><text class="t2" x="34" y="248">no smartphone needed</text></g>
+        
+        <!-- common-person agents (left column) -->
+        <text class="zone" x="20" y="284">COMMON-PERSON AGENTS</text>
+        <g id="a-coach" class="node agent" style="--c:#0EA5A4"><rect class="body" x="20" y="296" width="170" height="70" rx="8"/><rect class="sw" x="20" y="296" width="6" height="70" rx="2"/><text class="t1" x="38" y="320">Voice Coach Agent</text><text class="t2" x="38" y="340">talks first aid aloud</text><text class="chip" x="182" y="357" text-anchor="end">gemini lite</text></g>
+        <g id="a-landmark" class="node agent" style="--c:#CA8A04"><rect class="body" x="20" y="378" width="170" height="70" rx="8"/><rect class="sw" x="20" y="378" width="6" height="70" rx="2"/><text class="t1" x="38" y="402">Landmark Agent</text><text class="t2" x="38" y="422">"near the petrol pump…"</text><text class="chip" x="182" y="439" text-anchor="end">gemini lite</text></g>
+        <g id="a-prepared" class="node agent" style="--c:#7C3AED"><rect class="body" x="20" y="460" width="170" height="70" rx="8"/><rect class="sw" x="20" y="460" width="6" height="70" rx="2"/><text class="t1" x="38" y="484">Preparedness Agent</text><text class="t2" x="38" y="504">Emergency Card by voice</text><text class="chip" x="182" y="521" text-anchor="end">gemini</text></g>
+        <path id="e-coach" class="edge" d="M20 162 L8 162 L8 331 L18 331"/>
+        <path id="e-lm" class="edge" d="M310 280 L310 413 L192 413"/>
+        <path id="e-prepared" class="edge" d="M20 172 L14 172 L14 495 L18 495"/>
+        <g id="n-dash" class="node"><rect x="20" y="562" width="170" height="104" rx="8"/><text class="t1" x="34" y="588">Responder dashboard</text><text class="t2" x="34" y="606">live map · incidents</text><text class="t2" x="34" y="624">Agent Activity feed</text><text class="t2" x="34" y="642">verify / dismiss</text></g>
+
+        <!-- backend -->
+        <g id="n-api" class="node"><rect x="240" y="108" width="140" height="172" rx="8"/><text class="t1" x="254" y="134">FastAPI</text><text class="t2" x="254" y="152">/reports · webhooks</text><text class="t1" x="254" y="186">Orchestrator</text><text class="t2" x="254" y="204">deterministic order</text><text class="t2" x="254" y="222">locks per incident</text><text class="t1" x="254" y="252">Whisper</text><text class="t2" x="254" y="268">speech → text</text></g>
+
+        <path id="e-report" class="edge" d="M190 150 L238 150"/>
+        <text id="l-report" class="elabel" x="214" y="142" text-anchor="middle">POST</text>
+        <path id="e-sms" class="edge" d="M190 234 L238 234"/>
+        <path id="e-status" class="edge" d="M240 122 L192 122"/>
+        <text id="l-status" class="elabel" x="214" y="116" text-anchor="middle">✅ ticks</text>
+        <path id="e-intake" class="edge" d="M380 168 C405 168 405 76 428 76"/>
+
+        <!-- agents -->
+        <g id="a-intake" class="node agent" style="--c:#8B5CF6"><rect class="body" x="430" y="44" width="290" height="64" rx="8"/><rect class="sw" x="430" y="44" width="6" height="64" rx="2"/><text class="t1" x="448" y="70">Intake Agent</text><text class="t2" x="448" y="88">any language → structured incident</text><text class="chip" x="708" y="70" text-anchor="end">gemini</text></g>
+        <g id="a-verif" class="node agent" style="--c:#0891B2"><rect class="body" x="430" y="132" width="290" height="64" rx="8"/><rect class="sw" x="430" y="132" width="6" height="64" rx="2"/><text class="t1" x="448" y="158">Verification Agent</text><text class="t2" x="448" y="176">merge duplicates · confidence by code</text><text class="chip" x="708" y="158" text-anchor="end">gemini lite</text></g>
+        <g id="a-triage" class="node agent" style="--c:#16A34A"><rect class="body" x="430" y="220" width="290" height="64" rx="8"/><rect class="sw" x="430" y="220" width="6" height="64" rx="2"/><text class="t1" x="448" y="246">Triage Agent</text><text class="t2" x="448" y="264">hospitals by capability · beds · ETA</text><text class="chip" x="708" y="246" text-anchor="end">gemini lite</text></g>
+        <g id="a-dispatch" class="node agent" style="--c:#EA580C"><rect class="body" x="430" y="308" width="290" height="64" rx="8"/><rect class="sw" x="430" y="308" width="6" height="64" rx="2"/><text class="t1" x="448" y="334">Dispatch Agent</text><text class="t2" x="448" y="352">alert order · 60 s escalation</text><text class="chip" x="708" y="334" text-anchor="end">gemini lite</text></g>
+        <g id="a-prep" class="node agent" style="--c:#DB2777"><rect class="body" x="430" y="396" width="290" height="64" rx="8"/><rect class="sw" x="430" y="396" width="6" height="64" rx="2"/><text class="t1" x="448" y="422">Hospital Prep Agent</text><text class="t2" x="448" y="440">specialists · blood donors · volunteers</text><text class="chip" x="708" y="422" text-anchor="end">gemini lite</text></g>
+        <g id="a-debrief" class="node agent dashed" style="--c:#64748B"><rect class="body" x="430" y="504" width="290" height="64" rx="8"/><rect class="sw" x="430" y="504" width="6" height="64" rx="2"/><text class="t1" x="448" y="530">Debrief Agent</text><text class="t2" x="448" y="548">after-action report, on close</text><text class="chip" x="708" y="530" text-anchor="end">gemini</text></g>
+
+        <path id="e-iv" class="edge" d="M575 108 L575 130"/>
+        <path id="e-vt" class="edge" d="M575 196 L575 218"/>
+        <path id="e-td" class="edge" d="M575 284 L575 306"/>
+        <path id="e-dp" class="edge" d="M575 372 L575 394"/>
+
+        <!-- agent → guard tool calls -->
+        <path id="g-intake" class="edge thin" d="M720 76 L760 76"/>
+        <path id="g-verif" class="edge thin" d="M720 164 L760 164"/>
+        <path id="g-triage" class="edge thin" d="M720 252 L760 252"/>
+        <path id="g-dispatch" class="edge thin" d="M720 340 L760 340"/>
+        <path id="g-prep" class="edge thin" d="M720 428 L760 428"/>
+
+        <!-- guardrail layer -->
+        <g id="n-guard" class="guard"><rect x="760" y="44" width="46" height="416" rx="6"/><text x="783" y="252" text-anchor="middle" transform="rotate(-90 783 252)">GUARDRAILS + AUTOPILOT</text></g>
+
+        <!-- responders -->
+        <g id="r-police" class="node"><rect x="880" y="44" width="230" height="52" rx="8"/><text class="t1" x="894" y="66">Police</text><text class="t2" x="894" y="84">threat summary · map link</text></g>
+        <g id="r-ems" class="node"><rect x="880" y="110" width="230" height="52" rx="8"/><text class="t1" x="894" y="132">EMS / Rescue</text><text class="t2" x="894" y="150">casualties · assigned hospitals</text></g>
+        <g id="r-hosp" class="node"><rect x="880" y="176" width="230" height="52" rx="8"/><text class="t1" x="894" y="198">Hospitals (4)</text><text class="t2" x="894" y="216">pre-arrival brief · ETA</text></g>
+        <g id="r-fire" class="node"><rect x="880" y="242" width="230" height="52" rx="8"/><text class="t1" x="894" y="264">Fire</text><text class="t2" x="894" y="282">if fire / explosion</text></g>
+        <g id="r-doc" class="node"><rect x="880" y="368" width="230" height="52" rx="8"/><text class="t1" x="894" y="390">On-call doctors · donors</text><text class="t2" x="894" y="408">voice call · responder link · email</text></g>
+        <g id="r-public" class="node"><rect x="880" y="434" width="230" height="52" rx="8"/><text class="t1" x="894" y="456">Public nearby</text><text class="t2" x="894" y="474">"avoid the area" push</text></g>
+
+        <path id="e-police" class="edge" d="M806 120 C840 120 845 70 878 70"/>
+        <path id="e-ems" class="edge" d="M806 136 L878 136"/>
+        <path id="e-hosp" class="edge" d="M806 160 C840 160 845 202 878 202"/>
+        <path id="e-fire" class="edge" d="M806 180 C845 180 840 268 878 268"/>
+        <text id="l-alert" class="elabel" x="842" y="330" text-anchor="middle">Responder link (web) · SMS</text>
+        <text id="l-alert2" class="elabel" x="842" y="344" text-anchor="middle">email · push</text>
+        <path id="e-doc" class="edge" d="M806 420 C840 420 845 394 878 394"/>
+        <path id="e-public" class="edge" d="M806 444 C840 444 845 460 878 460"/>
+
+        <!-- escalation loop -->
+        <path id="e-esc" class="edge" d="M1110 58 C1150 58 1150 86 1112 86"/>
+        <text id="l-esc" class="elabel" x="1146" y="110" text-anchor="end">60 s → call</text>
+
+        <!-- database -->
+        <g id="n-db" class="node"><rect x="240" y="604" width="480" height="62" rx="8"/><text class="t1" x="256" y="630">Supabase · Postgres + PostGIS · Realtime · RLS</text><text class="t2" x="256" y="648">incidents · alert_targets · hospital_assignments · agent_activity · audit_log</text></g>
+        <path id="e-write" class="edge" d="M783 460 L783 635 L722 635"/>
+        <text id="l-write" class="elabel" x="790" y="560">writes</text>
+        <path id="e-rt" class="edge" d="M240 635 L192 635"/>
+        <text id="l-rt" class="elabel" x="216" y="627" text-anchor="middle">Realtime</text>
+        <path id="e-debrief" class="edge" d="M575 604 L575 570"/>
+        <text id="l-debrief" class="elabel" x="582" y="592">timeline</text>
+      </svg>

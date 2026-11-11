@@ -1,0 +1,380 @@
+{
+  "app": {
+    "name": "Golden Minute"
+  },
+  "lang": {
+    "en": "EN",
+    "es": "ES",
+    "ur": "اردو"
+  },
+  "responder": {
+    "title": "Alertas",
+    "live": "En vivo",
+    "empty": "Aún no hay alertas",
+    "keepOpen": "Mantenga esta página abierta. Las alertas nuevas aparecen solas.",
+    "ack": "Estoy respondiendo",
+    "acked": "Confirmado",
+    "ackedAt": "Confirmado a las {{time}}",
+    "openMap": "Abrir mapa",
+    "standby": "En espera",
+    "sending": "Enviando…",
+    "ackFailed": "No se pudo confirmar. Intente de nuevo.",
+    "invalid": "Este enlace no es válido",
+    "expired": "Este enlace ha caducado",
+    "askNew": "Pida un enlace nuevo a la central.",
+    "offline": "Sin conexión. Reintentando…"
+  },
+  "sos": {
+    "button": "SOS",
+    "subtitle": "Pulsa en caso de emergencia",
+    "sending": "Enviando en {{n}}…",
+    "cancel": "Cancelar",
+    "gettingLocation": "Obteniendo tu ubicación…"
+  },
+  "report": {
+    "speak": "Mantén pulsado para hablar",
+    "photo": "Foto",
+    "type": "Escribir",
+    "placeholder": "¿Qué pasó? ¿Dónde?",
+    "recording": "Grabando… suelta para enviar",
+    "tapToStop": "Pulsa otra vez para enviar",
+    "tooShort": "Muy corto. Mantén más tiempo y habla.",
+    "send": "Enviar",
+    "micDenied": "El micrófono está bloqueado. Usa Escribir.",
+    "failed": "No se pudo enviar. Llama al número de abajo."
+  },
+  "status": {
+    "alerting": "Estamos avisando a los servicios de emergencia",
+    "onTheWay": "La ayuda está en camino",
+    "hospital": "Hospital",
+    "ambulance": "Ambulancia",
+    "police": "Policía",
+    "fire": "Bomberos",
+    "alerted": "Avisado",
+    "acknowledged": "Confirmado",
+    "title": "Su reporte",
+    "code": "Código del incidente",
+    "copied": "Copiado",
+    "understood": "Lo que entendimos",
+    "processing": "Leyendo su reporte…",
+    "failed": "No pudimos leerlo. Se sigue avisando a los servicios.",
+    "in": "en {{n}} s",
+    "pending": "Esperando",
+    "notFound": "Reporte no encontrado",
+    "home": "Inicio"
+  },
+  "offline": {
+    "saved": "Guardado en tu teléfono – se enviará al conectarte"
+  },
+  "location": {
+    "getting": "Obteniendo tu ubicación…",
+    "ask": "¿Dónde estás? (referencia/zona)",
+    "chip": "📍 {{label}} · {{number}}"
+  },
+  "silent": {
+    "toggle": "Modo silencioso",
+    "hold": "Mantén 2 s"
+  },
+  "firstaid": {
+    "disclaimer": "Sigue las instrucciones del personal de emergencia. Esto es solo una guía básica."
+  },
+  "danger": {
+    "optin": "Avísame de peligros cercanos"
+  },
+  "family": {
+    "link": "Buscar a un familiar"
+  },
+  "join": {
+    "link": "Ser donante/voluntario"
+  },
+  "followup": {
+    "send": "Enviar"
+  },
+  "nearby": {
+    "title": "Hospitales más cercanos",
+    "loading": "Buscando hospitales cerca de ti…",
+    "empty": "No se encontraron hospitales cerca. Llama al {{number}}."
+  },
+  "safety": {
+    "promise": "Está ayudando. No necesita dar su nombre ni teléfono. No se le interrogará ni se le culpará."
+  },
+  "listen": {
+    "button": "Escuchar",
+    "unavailable": "Este teléfono no tiene voz para este idioma",
+    "stop": "Detener"
+  },
+  "card": {
+    "title": "Tarjeta de Emergencia",
+    "new": "Crear mi tarjeta de emergencia",
+    "speakPrompt": "Mantén pulsado y di: tu nombre, grupo sanguíneo y un número de familia",
+    "bloodGroup": "Grupo sanguíneo",
+    "dontKnow": "No lo sé",
+    "allergy": "¿Alergia a comida o medicina?",
+    "none": "Ninguna",
+    "family": "Número de un familiar",
+    "confirmQ": "¿Es correcto?",
+    "save": "Sí, guardar",
+    "change": "Cambiar",
+    "consent": "Cualquiera que escanee esta tarjeta verá estos datos",
+    "showPhone": "Mostrar mi número de familia a quien escanee",
+    "scanIfHurt": "Escanee si estoy herido",
+    "getHelp": "Pedir ayuda",
+    "callFamily": "Llamar a la familia",
+    "inactive": "Esta tarjeta ya no está activa",
+    "name": "Su nombre",
+    "next": "Siguiente",
+    "back": "Atrás",
+    "relation": "¿Quién es? (hermano, padre…)",
+    "contactName": "Nombre del familiar",
+    "phone": "Su número de teléfono",
+    "created": "Su tarjeta está lista",
+    "print": "Imprimir",
+    "scanUrl": "La pegatina abre esta página",
+    "step": "Paso {{n}} de {{total}}",
+    "error": "No se pudo guardar. Revise el teléfono."
+  },
+  "place": {
+    "new": "Preparar mi lugar",
+    "pressForHelp": "Pulse para pedir ayuda",
+    "type": {
+      "home": "Casa",
+      "shop": "Tienda",
+      "school": "Escuela",
+      "mosque": "Mezquita",
+      "factory": "Fábrica",
+      "office": "Oficina",
+      "other": "Otro"
+    }
+  },
+  "coach": {
+    "button": "Guíame paso a paso",
+    "next": "Siguiente",
+    "repeat": "Repetir",
+    "hold": "Mantén pulsado para hablar",
+    "call": "Llamar al {{number}}",
+    "title": "Primeros auxilios",
+    "step": "Paso {{n}} de {{total}}",
+    "listen": "Léamelo",
+    "done": "Listo",
+    "metronome": "Ritmo de RCP",
+    "metronomeStop": "Parar ritmo",
+    "disclaimer": "Sigue las instrucciones del personal de emergencia. Esto es solo una guía básica."
+  },
+  "landmark": {
+    "heading": "La ayuda va hacia:"
+  },
+  "ride": {
+    "areYouOk": "¿Estás bien?",
+    "imOk": "ESTOY BIEN"
+  },
+  "home": {
+    "callNow": "Llamar para pedir ayuda",
+    "safetyTitle": "Puede ayudar con tranquilidad"
+  },
+  "dash": {
+    "title": "Panel",
+    "active": "Activos",
+    "review": "Revisar",
+    "closed": "Cerrados",
+    "none": "Aún no hay incidentes",
+    "signOut": "Salir",
+    "live": "En vivo",
+    "connecting": "Conectando…",
+    "offline": "Sin conexión",
+    "feed": "Actividad de agentes",
+    "filterAll": "Todo",
+    "filterIncident": "Este incidente",
+    "noActivity": "Sin actividad aún",
+    "verify": "Verificar",
+    "dismiss": "Descartar",
+    "close": "Cerrar incidente",
+    "dismissReason": "Descartado por el despachador",
+    "actionFailed": "La acción falló",
+    "summary": "Resumen",
+    "casualties": "Víctimas",
+    "injuries": "Lesiones",
+    "needs": "Necesidades",
+    "confidence": "Confianza",
+    "danger": "El peligro puede continuar",
+    "silentReport": "Reporte silencioso",
+    "targets": "Destinatarios de alerta",
+    "assignments": "Asignación a hospitales",
+    "reportsList": "Reportes",
+    "timeline": "Cronología",
+    "recipient": "Destinatario",
+    "status": "Estado",
+    "ackAt": "Confirmado",
+    "hospital": "Hospital",
+    "patients": "Pacientes",
+    "criticalCount": "Críticos",
+    "eta": "ETA",
+    "overCapacity": "sobre capacidad",
+    "standby": "en espera",
+    "noReports": "Sin reportes",
+    "map": "Mapa",
+    "beds": "{{n}} camas libres",
+    "agentsAutopilot": "piloto automático",
+    "newIncident": "Nuevo incidente {{code}}",
+    "incidentsTab": "Incidentes",
+    "homeNav": "Inicio",
+    "liveMapNav": "Mapa en vivo",
+    "feedNav": "Actividad de agentes",
+    "flowNav": "Flujo en vivo",
+    "needHelp": "¿Necesita ayuda?",
+    "callRescue": "Llame al 1122",
+    "kpiActive": "Incidentes activos",
+    "kpiAlert": "Tiempo medio a la primera alerta",
+    "kpiAck": "Tasa de confirmación",
+    "kpiReports": "Informes recibidos",
+    "heroTitle1": "Una ciudad más segura,",
+    "heroTitle2": "en solo un minuto.",
+    "heroSub": "Reporte emergencias rápido. Nosotros hacemos el resto.",
+    "tagline": "Reporte • Responda • Manténgase seguro",
+    "reportEmergency": "Reportar emergencia",
+    "tapToStart": "Toque para empezar",
+    "voiceReport": "Informe por voz",
+    "textReport": "Informe escrito",
+    "liveMapTitle": "Mapa de incidentes en vivo",
+    "liveIncidents": "Incidentes en vivo",
+    "safetyTitle": "Su seguridad importa.",
+    "safetyBody": "En caso de emergencia, mantenga la calma y comparta su ubicación exacta.",
+    "minutes": "{{n}} min",
+    "seconds": "{{n}} s",
+    "guideNav": "Guía de uso",
+    "controlNav": "Sala de control",
+    "legend": {
+      "hospital": "Hospital",
+      "police": "Policía",
+      "rescue": "Rescate / EMS",
+      "fire": "Bomberos",
+      "unacked": "Anillo = esperando confirmación"
+    }
+  },
+  "login": {
+    "title": "Acceso de respondedores",
+    "email": "Correo",
+    "password": "Contraseña",
+    "submit": "Entrar",
+    "error": "Correo o contraseña incorrectos",
+    "forbidden": "Esta cuenta no es de respondedor",
+    "chooseTitle": "¿Quién es usted?",
+    "chooseSub": "Elija cómo usar Golden Minute",
+    "roleDispatcher": "Despachador",
+    "roleDispatcherDesc": "Verifica incidentes y coordina a los equipos. Requiere inicio de sesión.",
+    "roleBystander": "Testigo",
+    "roleBystanderDesc": "Reporte una emergencia ahora. Sin inicio de sesión.",
+    "roleControl": "Sala de control",
+    "roleControlDesc": "Las personas comprueban que cada agente funciona bien. Requiere inicio de sesión.",
+    "dispatcherTitle": "Acceso de despachador",
+    "controlTitle": "Acceso a la sala de control",
+    "back": "Atrás",
+    "notControl": "Esta cuenta no es de la sala de control",
+    "legend": {
+      "reporter": "Informe de testigo",
+      "incident": "Incidente",
+      "hospital": "Hospital",
+      "route": "Ruta de alerta"
+    }
+  },
+  "need": {
+    "ambulance": "Ambulancia",
+    "police": "Policía",
+    "fire": "Bomberos",
+    "rescue": "Rescate"
+  },
+  "targetStatus": {
+    "queued": "En cola",
+    "sent": "Avisado",
+    "delivered": "Entregado",
+    "acknowledged": "Confirmado",
+    "escalated": "Escalando",
+    "no_response": "Sin respuesta",
+    "failed": "Falló"
+  },
+  "incidentStatus": {
+    "review": "Revisar",
+    "unverified": "Sin verificar",
+    "verified": "Verificado",
+    "closed": "Cerrado",
+    "dismissed": "Descartado"
+  },
+  "agent": {
+    "orchestrator": "Orquestador",
+    "intake": "Recepción",
+    "verification": "Verificación",
+    "triage": "Triaje",
+    "dispatch": "Despacho",
+    "hospital_prep": "Prep. hospital",
+    "debrief": "Informe final",
+    "landmark": "Referencias",
+    "voice_coach": "Guía por voz",
+    "preparedness": "Preparación"
+  },
+  "incidentType": {
+    "attack_shooting": "Tiroteo / ataque",
+    "explosion": "Explosión",
+    "fire": "Incendio",
+    "road_accident": "Accidente de tráfico",
+    "building_collapse": "Derrumbe",
+    "medical": "Emergencia médica",
+    "riot_crowd": "Multitud / disturbio",
+    "flood": "Inundación",
+    "other": "Emergencia"
+  },
+  "severity": {
+    "low": "Baja",
+    "medium": "Media",
+    "high": "Alta",
+    "critical": "Crítica"
+  },
+  "injury": {
+    "gunshot": "herida de bala",
+    "blast_shrapnel": "heridas por explosión",
+    "burns": "quemaduras",
+    "fracture": "fracturas",
+    "head_injury": "lesión en la cabeza",
+    "bleeding": "hemorragia",
+    "crush": "aplastamiento",
+    "smoke_inhalation": "inhalación de humo",
+    "drowning": "ahogamiento",
+    "cardiac": "cardíaco",
+    "unconscious": "inconsciente",
+    "breathing_difficulty": "dificultad para respirar",
+    "unknown": "desconocido"
+  },
+  "flow": {
+    "title": "Flujo en vivo",
+    "live": "En vivo",
+    "replay": "Repetir",
+    "incident": "Incidente",
+    "allIncidents": "Todos los incidentes",
+    "play": "Reproducir",
+    "log": "Registro en vivo",
+    "waiting": "Esperando actividad de agentes… envíe un reporte.",
+    "pressReplay": "Elija un incidente y pulse Reproducir."
+  },
+  "control": {
+    "title": "Sala de control",
+    "subtitle": "Compruebe que cada agente funciona bien",
+    "agentHealth": "Estado de los agentes",
+    "decisions": "Decisiones de IA",
+    "autopilot": "Piloto automático",
+    "blocks": "Bloqueos de seguridad",
+    "errors": "Errores",
+    "latency": "Velocidad media",
+    "lastModel": "Último modelo",
+    "lastSeen": "Última actividad",
+    "healthy": "Sano",
+    "degraded": "Casi todo en piloto automático",
+    "attention": "Requiere atención",
+    "idle": "Sin actividad aún",
+    "reviewQueue": "Cola de revisión humana",
+    "reviewHelp": "Filas en las que un control bloqueó a un agente, falló o tomó el mando el piloto automático. Márquelas cuando una persona las revise.",
+    "reviewed": "Revisado",
+    "showReviewed": "Mostrar revisados",
+    "queueEmpty": "Nada que revisar. Todos los agentes funcionan bien.",
+    "reviewNote": "Las marcas de revisión se guardan solo en este navegador.",
+    "dashboardLink": "Panel del despachador",
+    "controlNav": "Sala de control"
+  }
+}

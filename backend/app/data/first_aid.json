@@ -1,0 +1,335 @@
+{
+  "stay_safe": {
+    "icon": "shield",
+    "en": {
+      "title": "Stay safe first",
+      "steps": [
+        "Move away from the danger. Do not go towards gunfire, fire or a blast site.",
+        "There may be a second explosion or attacker. Keep distance and take cover.",
+        "Help others only when it is safe for you.",
+        "Keep roads clear for ambulances and police."
+      ]
+    },
+    "es": {
+      "title": "Primero, tu seguridad",
+      "steps": [
+        "Aléjate del peligro. No vayas hacia disparos, fuego o el lugar de una explosión.",
+        "Puede haber una segunda explosión o atacante. Mantén distancia y ponte a cubierto.",
+        "Ayuda a otros solo cuando estés a salvo.",
+        "Deja las calles libres para ambulancias y policía."
+      ]
+    },
+    "ur": {
+      "title": "پہلے اپنی حفاظت کریں",
+      "steps": [
+        "خطرے سے دور ہو جائیں۔ فائرنگ، آگ یا دھماکے کی جگہ کی طرف نہ جائیں۔",
+        "دوسرا دھماکہ یا حملہ ہو سکتا ہے۔ فاصلہ رکھیں اور محفوظ جگہ پر رہیں۔",
+        "دوسروں کی مدد صرف تب کریں جب آپ خود محفوظ ہوں۔",
+        "ایمبولینس اور پولیس کے لیے راستہ خالی رکھیں۔"
+      ]
+    }
+  },
+  "call_help": {
+    "icon": "phone",
+    "en": {
+      "title": "Get help",
+      "steps": [
+        "Help has been alerted. If you can, also call the emergency number.",
+        "Stay with the injured person and keep them calm and still.",
+        "Do not give them food or water."
+      ]
+    },
+    "es": {
+      "title": "Pide ayuda",
+      "steps": [
+        "Ya se avisó a los servicios de emergencia. Si puedes, llama también al número de emergencias.",
+        "Quédate con la persona herida y mantenla tranquila y quieta.",
+        "No le des comida ni agua."
+      ]
+    },
+    "ur": {
+      "title": "مدد حاصل کریں",
+      "steps": [
+        "مدد کو اطلاع دے دی گئی ہے۔ اگر ممکن ہو تو ایمرجنسی نمبر پر بھی کال کریں۔",
+        "زخمی کے ساتھ رہیں اور اسے پرسکون اور بے حرکت رکھیں۔",
+        "اسے کھانا یا پانی نہ دیں۔"
+      ]
+    }
+  },
+  "bleeding": {
+    "icon": "droplet",
+    "en": {
+      "title": "Heavy bleeding",
+      "steps": [
+        "Press hard on the wound with a clean cloth or your hand. Do not let go.",
+        "If blood soaks through, add more cloth on top. Do not remove the first cloth.",
+        "Do not pull out objects stuck in the wound; press around them.",
+        "Keep the person lying down and warm."
+      ]
+    },
+    "es": {
+      "title": "Sangrado abundante",
+      "steps": [
+        "Presiona fuerte la herida con un paño limpio o con tu mano. No sueltes.",
+        "Si la sangre traspasa, pon más tela encima. No quites el primer paño.",
+        "No saques objetos clavados en la herida; presiona alrededor.",
+        "Mantén a la persona acostada y abrigada."
+      ]
+    },
+    "ur": {
+      "title": "زیادہ خون بہنا",
+      "steps": [
+        "زخم پر صاف کپڑے یا ہاتھ سے زور سے دبائیں۔ دباؤ نہ چھوڑیں۔",
+        "اگر خون کپڑے سے باہر آئے تو اوپر اور کپڑا رکھیں۔ پہلا کپڑا نہ ہٹائیں۔",
+        "زخم میں پھنسی چیز باہر نہ نکالیں؛ اس کے اردگرد دبائیں۔",
+        "زخمی کو لٹائے رکھیں اور گرم رکھیں۔"
+      ]
+    }
+  },
+  "burns": {
+    "icon": "flame",
+    "en": {
+      "title": "Burns",
+      "steps": [
+        "Cool the burn under clean running water for 20 minutes.",
+        "Remove rings, watches and tight clothing near the burn, unless stuck to skin.",
+        "Do not apply ice, toothpaste, oil or butter.",
+        "Cover loosely with clean plastic wrap or a clean cloth."
+      ]
+    },
+    "es": {
+      "title": "Quemaduras",
+      "steps": [
+        "Enfría la quemadura con agua limpia corriendo durante 20 minutos.",
+        "Quita anillos, relojes y ropa ajustada cerca de la quemadura, salvo si está pegada a la piel.",
+        "No pongas hielo, pasta de dientes, aceite ni mantequilla.",
+        "Cubre sin apretar con plástico film limpio o un paño limpio."
+      ]
+    },
+    "ur": {
+      "title": "جلنا",
+      "steps": [
+        "جلی ہوئی جگہ کو 20 منٹ تک صاف بہتے پانی سے ٹھنڈا کریں۔",
+        "جلی جگہ کے قریب انگوٹھی، گھڑی اور تنگ کپڑے اتار دیں، اگر جلد سے چپکے نہ ہوں۔",
+        "برف، ٹوتھ پیسٹ، تیل یا مکھن نہ لگائیں۔",
+        "صاف پلاسٹک یا صاف کپڑے سے ہلکا سا ڈھانپ دیں۔"
+      ]
+    }
+  },
+  "fracture": {
+    "icon": "bone",
+    "en": {
+      "title": "Broken bone",
+      "steps": [
+        "Do not try to straighten the limb.",
+        "Keep the injured part still and supported in the position found.",
+        "Do not move the person unless they are in danger."
+      ]
+    },
+    "es": {
+      "title": "Hueso roto",
+      "steps": [
+        "No intentes enderezar la extremidad.",
+        "Mantén la parte lesionada quieta y apoyada en la posición en que está.",
+        "No muevas a la persona salvo que esté en peligro."
+      ]
+    },
+    "ur": {
+      "title": "ہڈی ٹوٹنا",
+      "steps": [
+        "ٹوٹے ہوئے حصے کو سیدھا کرنے کی کوشش نہ کریں۔",
+        "زخمی حصے کو اسی حالت میں سہارا دے کر بے حرکت رکھیں۔",
+        "جب تک خطرہ نہ ہو، زخمی کو نہ ہلائیں۔"
+      ]
+    }
+  },
+  "head_injury": {
+    "icon": "brain",
+    "en": {
+      "title": "Head or neck injury",
+      "steps": [
+        "Keep the head and neck still. Do not move the person unless in danger.",
+        "If bleeding, press gently with a clean cloth.",
+        "Watch their breathing and talk to them until help arrives."
+      ]
+    },
+    "es": {
+      "title": "Lesión de cabeza o cuello",
+      "steps": [
+        "Mantén la cabeza y el cuello quietos. No muevas a la persona salvo peligro.",
+        "Si sangra, presiona suavemente con un paño limpio.",
+        "Vigila su respiración y háblale hasta que llegue ayuda."
+      ]
+    },
+    "ur": {
+      "title": "سر یا گردن کی چوٹ",
+      "steps": [
+        "سر اور گردن کو بے حرکت رکھیں۔ خطرہ نہ ہو تو زخمی کو نہ ہلائیں۔",
+        "خون بہہ رہا ہو تو صاف کپڑے سے ہلکا دبائیں۔",
+        "مدد آنے تک سانس پر نظر رکھیں اور اس سے بات کرتے رہیں۔"
+      ]
+    }
+  },
+  "unconscious": {
+    "icon": "heart-pulse",
+    "en": {
+      "title": "Unconscious person",
+      "steps": [
+        "Check if they are breathing: look at the chest for 10 seconds.",
+        "Breathing: turn them on their side (recovery position) and keep the airway open.",
+        "Not breathing: push hard and fast in the centre of the chest, about 2 pushes per second, until help arrives."
+      ]
+    },
+    "es": {
+      "title": "Persona inconsciente",
+      "steps": [
+        "Comprueba si respira: mira el pecho durante 10 segundos.",
+        "Si respira: ponla de lado (posición de recuperación) y mantén la vía aérea abierta.",
+        "Si no respira: presiona fuerte y rápido en el centro del pecho, unas 2 veces por segundo, hasta que llegue ayuda."
+      ]
+    },
+    "ur": {
+      "title": "بے ہوش شخص",
+      "steps": [
+        "دیکھیں کہ سانس لے رہا ہے یا نہیں: 10 سیکنڈ تک سینے کو دیکھیں۔",
+        "سانس لے رہا ہو: اسے کروٹ پر لٹا دیں اور سانس کا راستہ کھلا رکھیں۔",
+        "سانس نہ لے رہا ہو: سینے کے بیچ میں زور سے اور تیزی سے دبائیں، تقریباً ایک سیکنڈ میں 2 بار، مدد آنے تک۔"
+      ]
+    }
+  },
+  "cardiac": {
+    "icon": "heart",
+    "en": {
+      "title": "Chest pain / heart attack",
+      "steps": [
+        "Sit them down and keep them calm.",
+        "Loosen tight clothing.",
+        "If they collapse and stop breathing, start chest compressions: hard and fast in the centre of the chest."
+      ]
+    },
+    "es": {
+      "title": "Dolor de pecho / infarto",
+      "steps": [
+        "Siéntala y mantenla tranquila.",
+        "Afloja la ropa ajustada.",
+        "Si se desploma y deja de respirar, empieza compresiones: fuerte y rápido en el centro del pecho."
+      ]
+    },
+    "ur": {
+      "title": "سینے میں درد / دل کا دورہ",
+      "steps": [
+        "انہیں بٹھا دیں اور پرسکون رکھیں۔",
+        "تنگ کپڑے ڈھیلے کر دیں۔",
+        "اگر گر جائیں اور سانس رک جائے تو سینے کے بیچ میں زور سے اور تیزی سے دبانا شروع کریں۔"
+      ]
+    }
+  },
+  "breathing": {
+    "icon": "wind",
+    "en": {
+      "title": "Difficulty breathing",
+      "steps": [
+        "Help them sit upright, leaning slightly forward.",
+        "Loosen tight clothing and keep them calm.",
+        "Move them to fresh air if safe."
+      ]
+    },
+    "es": {
+      "title": "Dificultad para respirar",
+      "steps": [
+        "Ayúdala a sentarse erguida, un poco inclinada hacia adelante.",
+        "Afloja la ropa ajustada y mantenla tranquila.",
+        "Llévala al aire libre si es seguro."
+      ]
+    },
+    "ur": {
+      "title": "سانس لینے میں دشواری",
+      "steps": [
+        "انہیں سیدھا بٹھائیں، تھوڑا آگے جھکا کر۔",
+        "تنگ کپڑے ڈھیلے کریں اور پرسکون رکھیں۔",
+        "محفوظ ہو تو تازہ ہوا میں لے جائیں۔"
+      ]
+    }
+  },
+  "smoke": {
+    "icon": "cloud",
+    "en": {
+      "title": "Smoke",
+      "steps": [
+        "Get everyone out to fresh air. Stay low below the smoke.",
+        "Do not go back inside a burning building.",
+        "If someone is not breathing, start chest compressions."
+      ]
+    },
+    "es": {
+      "title": "Humo",
+      "steps": [
+        "Saca a todos al aire libre. Mantente agachado por debajo del humo.",
+        "No vuelvas a entrar a un edificio en llamas.",
+        "Si alguien no respira, empieza compresiones en el pecho."
+      ]
+    },
+    "ur": {
+      "title": "دھواں",
+      "steps": [
+        "سب کو تازہ ہوا میں باہر نکالیں۔ دھوئیں سے نیچے جھک کر چلیں۔",
+        "جلتی عمارت میں واپس نہ جائیں۔",
+        "اگر کوئی سانس نہ لے رہا ہو تو سینے کو دبانا شروع کریں۔"
+      ]
+    }
+  },
+  "drowning": {
+    "icon": "waves",
+    "en": {
+      "title": "Drowning",
+      "steps": [
+        "Do not enter fast water yourself. Throw a rope, pipe or floating object.",
+        "Once out, check breathing. If not breathing, start chest compressions.",
+        "Keep them warm."
+      ]
+    },
+    "es": {
+      "title": "Ahogamiento",
+      "steps": [
+        "No entres tú en agua con corriente. Lanza una cuerda, tubo u objeto que flote.",
+        "Una vez fuera, comprueba si respira. Si no, empieza compresiones en el pecho.",
+        "Mantenla abrigada."
+      ]
+    },
+    "ur": {
+      "title": "ڈوبنا",
+      "steps": [
+        "تیز پانی میں خود نہ جائیں۔ رسی، پائپ یا تیرنے والی چیز پھینکیں۔",
+        "باہر نکالنے کے بعد سانس چیک کریں۔ سانس نہ ہو تو سینے کو دبانا شروع کریں۔",
+        "انہیں گرم رکھیں۔"
+      ]
+    }
+  },
+  "crush": {
+    "icon": "building",
+    "en": {
+      "title": "Trapped under debris",
+      "steps": [
+        "Do not climb on unstable debris. Wait for rescue teams.",
+        "Talk to trapped people to keep them calm and tell rescuers where they are.",
+        "Do not try to lift heavy objects yourself."
+      ]
+    },
+    "es": {
+      "title": "Atrapados bajo escombros",
+      "steps": [
+        "No subas a escombros inestables. Espera a los equipos de rescate.",
+        "Habla con las personas atrapadas para calmarlas y di a los rescatistas dónde están.",
+        "No intentes levantar objetos pesados tú solo."
+      ]
+    },
+    "ur": {
+      "title": "ملبے تلے دبے لوگ",
+      "steps": [
+        "غیر مستحکم ملبے پر نہ چڑھیں۔ ریسکیو ٹیم کا انتظار کریں۔",
+        "دبے ہوئے لوگوں سے بات کر کے انہیں حوصلہ دیں اور ریسکیو کو ان کی جگہ بتائیں۔",
+        "بھاری چیزیں خود اٹھانے کی کوشش نہ کریں۔"
+      ]
+    }
+  }
+}

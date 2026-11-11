@@ -1,0 +1,390 @@
+<title>Golden Minute Architecture</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..100,400..800&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+/* Layout: dispatch-console sheet — header, step console, one wide flow diagram, step rail. */
+:root {
+  --bg: #F3F5F8;
+  --panel: #FFFFFF;
+  --panel-hi: #FFF1F3;
+  --ink: #121722;
+  --muted: #5A6475;
+  --line: #B3BCC9;
+  --signal: #D7263D;
+  --ok: #1F9D55;
+  --guard: #A86A12;
+  --guard-fill: #FBF3E4;
+  --font-display: "Archivo", "Arial Narrow", system-ui, sans-serif;
+  --font-body: "Archivo", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-data: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0E1219; --panel: #161C26; --panel-hi: #2B1820; --ink: #E6EAF0; --muted: #96A1B3;
+    --line: #3C4758; --signal: #FF5368; --ok: #3DD68C; --guard: #E5AA45; --guard-fill: #2A2214;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0E1219; --panel: #161C26; --panel-hi: #2B1820; --ink: #E6EAF0; --muted: #96A1B3;
+  --line: #3C4758; --signal: #FF5368; --ok: #3DD68C; --guard: #E5AA45; --guard-fill: #2A2214;
+  color-scheme: dark;
+}
+body {
+  background: var(--bg); color: var(--ink); font-family: var(--font-body); font-size: 15px; line-height: 1.5;
+}
+.wrap {
+  max-width: 1240px; margin: 0 auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 28px 40px;
+  display: grid; gap: 20px;
+}
+header { display: grid; gap: 6px; }
+.eyebrow { font-family: var(--font-data); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--signal); }
+h1 { margin: 0; font-family: var(--font-display); font-weight: 800; font-stretch: 78%; font-size: clamp(30px, 5vw, 46px); line-height: 1.02; text-wrap: balance; }
+.lede { margin: 0; max-width: 68ch; color: var(--muted); }
+
+.console {
+  display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 16px; align-items: start;
+  background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 16px 18px;
+}
+.console-text { min-width: 0; display: grid; gap: 6px; }
+.step-meta { display: flex; flex-wrap: wrap; gap: 10px 16px; align-items: baseline; font-family: var(--font-data); font-size: 12.5px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.step-meta .t { color: var(--signal); font-weight: 600; }
+.step-title { margin: 0; font-family: var(--font-display); font-stretch: 85%; font-weight: 700; font-size: 22px; line-height: 1.2; }
+.step-body { margin: 0; max-width: 72ch; }
+.step-data { margin: 0; font-family: var(--font-data); font-size: 12.5px; color: var(--muted); overflow-wrap: anywhere; }
+.clockbar { display: grid; gap: 4px; margin-top: 4px; max-width: 420px; }
+.clockbar-track { height: 6px; background: var(--bg); border: 1px solid var(--line); border-radius: 3px; overflow: hidden; }
+.clockbar-fill { height: 100%; width: 0; background: var(--signal); transition: width .6s ease; }
+.clockbar-label { font-family: var(--font-data); font-size: 11.5px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.controls { display: flex; gap: 8px; flex-wrap: wrap; }
+button {
+  font: 600 14px var(--font-body); color: var(--ink); background: var(--bg);
+  border: 1px solid var(--line); border-radius: 8px; padding: 9px 14px; cursor: pointer; min-height: 40px;
+}
+button:hover { border-color: var(--ink); }
+button:focus-visible, .rail button:focus-visible { outline: 2px solid var(--signal); outline-offset: 2px; }
+button.primary { background: var(--signal); color: #fff; border-color: var(--signal); min-width: 92px; }
+
+figure { margin: 0; display: grid; gap: 10px; }
+.scroller { overflow-x: auto; background: var(--panel); border: 1px solid var(--line); border-radius: 10px; }
+.scroller svg { display: block; width: 100%; min-width: 900px; height: auto; color: var(--ink); }
+figcaption { font-size: 13px; color: var(--muted); max-width: 90ch; }
+
+/* SVG styling */
+.node rect { fill: var(--panel); stroke: var(--line); stroke-width: 1.4; transition: stroke .3s, fill .3s; }
+.node .t1 { font: 700 13px var(--font-body); fill: var(--ink); }
+.node .t2 { font: 400 11px var(--font-body); fill: var(--muted); }
+.node .chip { font: 500 10px var(--font-data); fill: var(--muted); }
+.node.active rect { stroke: var(--signal); stroke-width: 2.6; fill: var(--panel-hi); }
+.node.done rect { stroke: var(--ok); }
+.agent rect.body { stroke: var(--c); }
+.agent rect.sw { fill: var(--c); stroke: none; }
+.agent.active rect.body { stroke: var(--c); stroke-width: 3; fill: var(--panel-hi); animation: pulse 1.1s ease-in-out infinite; }
+.agent.done rect.body { stroke: var(--c); stroke-width: 2; }
+.agent.dashed rect.body { stroke-dasharray: 5 4; }
+.guard rect { fill: var(--guard-fill); stroke: var(--guard); stroke-width: 1.6; }
+.guard text { font: 600 11px var(--font-data); fill: var(--guard); letter-spacing: .12em; }
+.guard.active rect { stroke-width: 3; animation: pulse 1.1s ease-in-out infinite; }
+.edge { fill: none; stroke: var(--line); stroke-width: 1.5; marker-end: url(#arrow); transition: stroke .3s; }
+.edge.thin { stroke-width: 1; marker-end: none; stroke-dasharray: 2 3; }
+.edge.active { stroke: var(--signal); stroke-width: 2.2; stroke-dasharray: 7 6; animation: flow .55s linear infinite; marker-end: url(#arrowOn); }
+.edge.thin.active { stroke-width: 1.6; marker-end: none; }
+.edge.done { stroke: var(--ok); marker-end: url(#arrowOk); }
+.elabel { font: 500 10.5px var(--font-data); fill: var(--muted); }
+.elabel.active { fill: var(--signal); }
+.arrowhead { fill: var(--line); }
+.arrowhead.on { fill: var(--signal); }
+.arrowhead.ok { fill: var(--ok); }
+.zone { font: 600 10.5px var(--font-data); fill: var(--muted); letter-spacing: .14em; }
+@keyframes flow { to { stroke-dashoffset: -13; } }
+@keyframes pulse { 50% { stroke-opacity: .45; } }
+
+.rail { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 8px; }
+.rail button {
+  width: 100%; text-align: left; display: grid; grid-template-columns: auto minmax(0,1fr); gap: 2px 10px;
+  background: var(--panel); font-weight: 500; padding: 10px 12px;
+}
+.rail .n { grid-row: span 2; font-family: var(--font-data); font-size: 12px; color: var(--muted); padding-top: 2px; font-variant-numeric: tabular-nums; }
+.rail .h { font-weight: 700; font-size: 14px; }
+.rail .s { font-size: 12.5px; color: var(--muted); }
+.rail button[aria-current="step"] { border-color: var(--signal); box-shadow: inset 3px 0 0 var(--signal); }
+.rail button[aria-current="step"] .n { color: var(--signal); }
+
+.notes { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
+.notes section { min-width: 0; }
+.notes h2 { margin: 0 0 6px; font-family: var(--font-display); font-stretch: 85%; font-size: 17px; }
+.notes p, .notes ul { margin: 0; font-size: 14px; color: var(--muted); }
+.notes ul { padding-left: 18px; display: grid; gap: 4px; }
+.notes code { font-family: var(--font-data); font-size: 12.5px; color: var(--ink); }
+
+@media (max-width: 720px) {
+  .console { grid-template-columns: 1fr; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .edge.active, .agent.active rect.body, .guard.active rect { animation: none; }
+  .clockbar-fill { transition: none; }
+}
+</style>
+
+<div class="wrap">
+  <header>
+    <div class="eyebrow">Golden Minute · system architecture</div>
+    <h1>From one panicked report to every responder ready</h1>
+    <p class="lede">Follow a multi-vehicle crash on Ferozepur Road, Lahore, through the system. A person who cannot read or type presses, speaks or scans; nine agents turn the reports into one verified incident, describe the place by local landmarks and coach first aid; every action passes through the guardrail layer before anyone is contacted.</p>
+  </header>
+
+  <div class="console" aria-live="polite">
+    <div class="console-text">
+      <div class="step-meta"><span id="stepNo">Step 1 of 12</span><span class="t" id="stepT">T+0 s</span><span id="stepWho">Reporter → API</span></div>
+      <h2 class="step-title" id="stepTitle">A report arrives</h2>
+      <p class="step-body" id="stepBody"></p>
+      <p class="step-data" id="stepData"></p>
+      <div class="clockbar" id="clockbar">
+        <div class="clockbar-track"><div class="clockbar-fill" id="clockFill"></div></div>
+        <div class="clockbar-label" id="clockLabel">Golden minute: 0 / 60 s</div>
+      </div>
+    </div>
+    <div class="controls">
+      <button type="button" id="prevBtn" aria-label="Previous step">Back</button>
+      <button type="button" class="primary" id="playBtn">Pause</button>
+      <button type="button" id="nextBtn" aria-label="Next step">Next</button>
+    </div>
+  </div>
+
+  <figure>
+    <div class="scroller">
+      <svg id="diagram" viewBox="0 -24 1160 712" role="img" aria-label="Golden Minute data flow: reporter and SMS feed the API and orchestrator, which runs Intake, Verification, Triage, Dispatch and Hospital Prep agents; all their actions pass through a guardrail layer to police, EMS, hospitals, fire, doctors and the public; acknowledgements return to the API; agent activity is stored in Supabase and streamed to the dashboard; the Debrief agent runs on close.">
+        <defs>
+          <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="arrowhead" d="M0,0 L10,5 L0,10 z"/></marker>
+          <marker id="arrowOn" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="arrowhead on" d="M0,0 L10,5 L0,10 z"/></marker>
+          <marker id="arrowOk" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="arrowhead ok" d="M0,0 L10,5 L0,10 z"/></marker>
+        </defs>
+
+        <!-- zone labels -->
+        <text class="zone" x="20" y="92">REPORTERS</text>
+        <text class="zone" x="240" y="92">BACKEND</text>
+        <text class="zone" x="430" y="30">CORE AGENTS · openai-agents SDK</text>
+        <text class="zone" x="880" y="30">RESPONDERS</text>
+
+        <!-- ack loop over the top -->
+        <path id="e-ack" class="edge" d="M995 40 L995 -6 L310 -6 L310 108"/>
+        <text id="l-ack" class="elabel" x="650" y="-11" text-anchor="middle">acknowledge: responder link ✅ · signed link · keypad 1</text>
+
+        <!-- reporters -->
+        <g id="n-reporter" class="node"><rect x="20" y="104" width="170" height="78" rx="8"/><text class="t1" x="34" y="130">Reporter app (PWA)</text><text class="t2" x="34" y="148">voice · photo · text · SOS</text><text class="t2" x="34" y="166">EN · ES · اردو · offline queue</text></g>
+        <g id="n-sms" class="node"><rect x="20" y="206" width="170" height="58" rx="8"/><text class="t1" x="34" y="230">SMS / missed call</text><text class="t2" x="34" y="248">no smartphone needed</text></g>
+        
+        <!-- common-person agents (left column) -->
+        <text class="zone" x="20" y="284">COMMON-PERSON AGENTS</text>
+        <g id="a-coach" class="node agent" style="--c:#0EA5A4"><rect class="body" x="20" y="296" width="170" height="70" rx="8"/><rect class="sw" x="20" y="296" width="6" height="70" rx="2"/><text class="t1" x="38" y="320">Voice Coach Agent</text><text class="t2" x="38" y="340">talks first aid aloud</text><text class="chip" x="182" y="357" text-anchor="end">groq</text></g>
+        <g id="a-landmark" class="node agent" style="--c:#CA8A04"><rect class="body" x="20" y="378" width="170" height="70" rx="8"/><rect class="sw" x="20" y="378" width="6" height="70" rx="2"/><text class="t1" x="38" y="402">Landmark Agent</text><text class="t2" x="38" y="422">"near the petrol pump…"</text><text class="chip" x="182" y="439" text-anchor="end">gemini lite</text></g>
+        <g id="a-prepared" class="node agent" style="--c:#7C3AED"><rect class="body" x="20" y="460" width="170" height="70" rx="8"/><rect class="sw" x="20" y="460" width="6" height="70" rx="2"/><text class="t1" x="38" y="484">Preparedness Agent</text><text class="t2" x="38" y="504">Emergency Card by voice</text><text class="chip" x="182" y="521" text-anchor="end">gemini</text></g>
+        <path id="e-coach" class="edge" d="M20 162 L8 162 L8 331 L18 331"/>
+        <path id="e-lm" class="edge" d="M310 280 L310 413 L192 413"/>
+        <path id="e-prepared" class="edge" d="M20 172 L14 172 L14 495 L18 495"/>
+        <g id="n-dash" class="node"><rect x="20" y="562" width="170" height="104" rx="8"/><text class="t1" x="34" y="588">Responder dashboard</text><text class="t2" x="34" y="606">live map · incidents</text><text class="t2" x="34" y="624">Agent Activity feed</text><text class="t2" x="34" y="642">verify / dismiss</text></g>
+
+        <!-- backend -->
+        <g id="n-api" class="node"><rect x="240" y="108" width="140" height="172" rx="8"/><text class="t1" x="254" y="134">FastAPI</text><text class="t2" x="254" y="152">/reports · webhooks</text><text class="t1" x="254" y="186">Orchestrator</text><text class="t2" x="254" y="204">deterministic order</text><text class="t2" x="254" y="222">locks per incident</text><text class="t1" x="254" y="252">Whisper</text><text class="t2" x="254" y="268">speech → text</text></g>
+
+        <path id="e-report" class="edge" d="M190 150 L238 150"/>
+        <text id="l-report" class="elabel" x="214" y="142" text-anchor="middle">POST</text>
+        <path id="e-sms" class="edge" d="M190 234 L238 234"/>
+        <path id="e-status" class="edge" d="M240 122 L192 122"/>
+        <text id="l-status" class="elabel" x="214" y="116" text-anchor="middle">✅ ticks</text>
+        <path id="e-intake" class="edge" d="M380 168 C405 168 405 76 428 76"/>
+
+        <!-- agents -->
+        <g id="a-intake" class="node agent" style="--c:#8B5CF6"><rect class="body" x="430" y="44" width="290" height="64" rx="8"/><rect class="sw" x="430" y="44" width="6" height="64" rx="2"/><text class="t1" x="448" y="70">Intake Agent</text><text class="t2" x="448" y="88">any language → structured incident</text><text class="chip" x="708" y="70" text-anchor="end">gemini</text></g>
+        <g id="a-verif" class="node agent" style="--c:#0891B2"><rect class="body" x="430" y="132" width="290" height="64" rx="8"/><rect class="sw" x="430" y="132" width="6" height="64" rx="2"/><text class="t1" x="448" y="158">Verification Agent</text><text class="t2" x="448" y="176">merge duplicates · confidence by code</text><text class="chip" x="708" y="158" text-anchor="end">groq</text></g>
+        <g id="a-triage" class="node agent" style="--c:#16A34A"><rect class="body" x="430" y="220" width="290" height="64" rx="8"/><rect class="sw" x="430" y="220" width="6" height="64" rx="2"/><text class="t1" x="448" y="246">Triage Agent</text><text class="t2" x="448" y="264">hospitals by capability · beds · ETA</text><text class="chip" x="708" y="246" text-anchor="end">groq</text></g>
+        <g id="a-dispatch" class="node agent" style="--c:#EA580C"><rect class="body" x="430" y="308" width="290" height="64" rx="8"/><rect class="sw" x="430" y="308" width="6" height="64" rx="2"/><text class="t1" x="448" y="334">Dispatch Agent</text><text class="t2" x="448" y="352">alert order · 60 s escalation</text><text class="chip" x="708" y="334" text-anchor="end">gemini lite</text></g>
+        <g id="a-prep" class="node agent" style="--c:#DB2777"><rect class="body" x="430" y="396" width="290" height="64" rx="8"/><rect class="sw" x="430" y="396" width="6" height="64" rx="2"/><text class="t1" x="448" y="422">Hospital Prep Agent</text><text class="t2" x="448" y="440">specialists · blood donors · volunteers</text><text class="chip" x="708" y="422" text-anchor="end">groq</text></g>
+        <g id="a-debrief" class="node agent dashed" style="--c:#64748B"><rect class="body" x="430" y="504" width="290" height="64" rx="8"/><rect class="sw" x="430" y="504" width="6" height="64" rx="2"/><text class="t1" x="448" y="530">Debrief Agent</text><text class="t2" x="448" y="548">after-action report, on close</text><text class="chip" x="708" y="530" text-anchor="end">gemini</text></g>
+
+        <path id="e-iv" class="edge" d="M575 108 L575 130"/>
+        <path id="e-vt" class="edge" d="M575 196 L575 218"/>
+        <path id="e-td" class="edge" d="M575 284 L575 306"/>
+        <path id="e-dp" class="edge" d="M575 372 L575 394"/>
+
+        <!-- agent → guard tool calls -->
+        <path id="g-intake" class="edge thin" d="M720 76 L760 76"/>
+        <path id="g-verif" class="edge thin" d="M720 164 L760 164"/>
+        <path id="g-triage" class="edge thin" d="M720 252 L760 252"/>
+        <path id="g-dispatch" class="edge thin" d="M720 340 L760 340"/>
+        <path id="g-prep" class="edge thin" d="M720 428 L760 428"/>
+
+        <!-- guardrail layer -->
+        <g id="n-guard" class="guard"><rect x="760" y="44" width="46" height="416" rx="6"/><text x="783" y="252" text-anchor="middle" transform="rotate(-90 783 252)">GUARDRAILS + AUTOPILOT</text></g>
+
+        <!-- responders -->
+        <g id="r-police" class="node"><rect x="880" y="44" width="230" height="52" rx="8"/><text class="t1" x="894" y="66">Police</text><text class="t2" x="894" y="84">threat summary · map link</text></g>
+        <g id="r-ems" class="node"><rect x="880" y="110" width="230" height="52" rx="8"/><text class="t1" x="894" y="132">EMS / Rescue</text><text class="t2" x="894" y="150">casualties · assigned hospitals</text></g>
+        <g id="r-hosp" class="node"><rect x="880" y="176" width="230" height="52" rx="8"/><text class="t1" x="894" y="198">Hospitals (4)</text><text class="t2" x="894" y="216">pre-arrival brief · ETA</text></g>
+        <g id="r-fire" class="node"><rect x="880" y="242" width="230" height="52" rx="8"/><text class="t1" x="894" y="264">Fire</text><text class="t2" x="894" y="282">if fire / explosion</text></g>
+        <g id="r-doc" class="node"><rect x="880" y="368" width="230" height="52" rx="8"/><text class="t1" x="894" y="390">On-call doctors · donors</text><text class="t2" x="894" y="408">voice call · responder link · email</text></g>
+        <g id="r-public" class="node"><rect x="880" y="434" width="230" height="52" rx="8"/><text class="t1" x="894" y="456">Public nearby</text><text class="t2" x="894" y="474">"avoid the area" push</text></g>
+
+        <path id="e-police" class="edge" d="M806 120 C840 120 845 70 878 70"/>
+        <path id="e-ems" class="edge" d="M806 136 L878 136"/>
+        <path id="e-hosp" class="edge" d="M806 160 C840 160 845 202 878 202"/>
+        <path id="e-fire" class="edge" d="M806 180 C845 180 840 268 878 268"/>
+        <text id="l-alert" class="elabel" x="842" y="330" text-anchor="middle">Responder link (web) · SMS</text>
+        <text id="l-alert2" class="elabel" x="842" y="344" text-anchor="middle">email · push</text>
+        <path id="e-doc" class="edge" d="M806 420 C840 420 845 394 878 394"/>
+        <path id="e-public" class="edge" d="M806 444 C840 444 845 460 878 460"/>
+
+        <!-- escalation loop -->
+        <path id="e-esc" class="edge" d="M1110 58 C1150 58 1150 86 1112 86"/>
+        <text id="l-esc" class="elabel" x="1146" y="110" text-anchor="end">60 s → call</text>
+
+        <!-- database -->
+        <g id="n-db" class="node"><rect x="240" y="604" width="480" height="62" rx="8"/><text class="t1" x="256" y="630">Supabase · Postgres + PostGIS · Realtime · RLS</text><text class="t2" x="256" y="648">incidents · alert_targets · hospital_assignments · agent_activity · audit_log</text></g>
+        <path id="e-write" class="edge" d="M783 460 L783 635 L722 635"/>
+        <text id="l-write" class="elabel" x="790" y="560">writes</text>
+        <path id="e-rt" class="edge" d="M240 635 L192 635"/>
+        <text id="l-rt" class="elabel" x="216" y="627" text-anchor="middle">Realtime</text>
+        <path id="e-debrief" class="edge" d="M575 604 L575 570"/>
+        <text id="l-debrief" class="elabel" x="582" y="592">timeline</text>
+      </svg>
+    </div>
+    <figcaption>Every alert, call and ping leaves through the guardrail layer: agents choose order and options, policy code decides who may be contacted, and if any agent fails, autopilot does the same job. Model chips show the default model per agent; each one falls back to the other provider.</figcaption>
+  </figure>
+
+  <ol class="rail" id="rail"></ol>
+
+  <div class="notes">
+    <section>
+      <h2>Agents propose, guardrails decide</h2>
+      <ul>
+        <li>Agents act only through tools; each tool checks policy first.</li>
+        <li>Confidence, status, recipients and message text are set by code.</li>
+        <li>Any rejected proposal is logged as a guardrail block, visible in the feed.</li>
+      </ul>
+    </section>
+    <section>
+      <h2>Nothing depends on one model</h2>
+      <ul>
+        <li>Each agent tries its primary model, then the other provider.</li>
+        <li>If both fail, autopilot runs the same rules deterministically.</li>
+        <li>The web responder link and SMS go out together; voice calls escalate silence.</li>
+      </ul>
+    </section>
+    <section>
+      <h2>It follows the reporter</h2>
+      <p>The phone's location picks the country: Rescue 1122 and Urdu in Lahore, 911 in Houston, 112 anywhere unknown. If an area has no hospital data yet, nearby hospitals are pulled live from OpenStreetMap.</p>
+    </section>
+  </div>
+</div>
+
+<script>
+(function () {
+  const steps = [
+    { label: "Before anything happens", who: "Preparedness Agent", title: "A rider makes his Emergency Card by voice",
+      body: "Ahmad speaks in Urdu: his name, blood group O+, a penicillin allergy and his brother's number. The Preparedness Agent never sees the phone number, and nothing is saved until Ahmad hears the card read back and says yes. A QR sticker goes on his helmet.",
+      data: "POST /cards/draft → CardDraft (phones replaced by placeholders) → confirm → emergency_cards + card_contacts (encrypted)",
+      on: ["n-reporter", "e-prepared", "a-prepared"] },
+    { t: 0, who: "Reporter → API", title: "Press, speak or scan: no reading, no typing",
+      body: "A rickshaw driver reaches a crash on Ferozepur Road. The screen reads itself aloud in Urdu. He holds the mic and describes it. Two more people report in Roman Urdu and English; a stranger scans Ahmad's helmet QR and presses Get help.",
+      data: "POST /api/v1/reports · 202 in < 1 s · no name, phone or account needed",
+      on: ["n-reporter", "e-report", "l-report", "n-api", "n-sms", "e-sms"] },
+    { t: 3, who: "Intake Agent + Landmark Agent", title: "Urdu understood, and the place described like a local would",
+      body: "Whisper transcribes the audio; the Intake Agent builds the structured incident. Beside it, the Landmark Agent turns OpenStreetMap landmarks into one line the ambulance driver can follow.",
+      data: "road_accident · high · ~10 injured · needs=[ambulance, police] · \"200 m after Kalma Chowk, opposite the petrol pump\"",
+      on: ["n-api", "e-intake", "a-intake", "g-intake", "e-lm", "a-landmark"] },
+    { t: 5, who: "Verification", title: "Three reports become one incident",
+      body: "Reports within 500 m and 15 minutes are compared. Close, same-type reports merge by rule; ambiguous ones go to the agent. Code computes confidence, never the agent.",
+      data: "c = 0.40×0.90 + 0.25×(2/3) + 0.10 (GPS ≤ 100 m) = 0.63 → verified · GM-7K3Q",
+      on: ["e-iv", "a-verif", "g-verif", "n-guard"] },
+    { t: 7, who: "Triage", title: "Patients are spread across hospitals",
+      body: "The plan weighs capabilities, free ER beds and OSRM drive times. The guardrail rejects any plan that overfills an ER or sends critical patients to the wrong unit; the autopilot spreads them if the agent fails.",
+      data: "12 patients → 2 trauma hospitals (4 critical) + 2 community hospitals",
+      on: ["e-vt", "a-triage", "g-triage", "n-guard"] },
+    { t: 9, who: "Dispatch → responders", title: "Everyone needed is alerted, with directions",
+      body: "Ambulance, police and the receiving hospitals get a fixed-template alert on their web responder link. It carries the landmark line and, for the helmet scan, a line from the Emergency Card: blood group and allergy.",
+      data: "send_alerts([police, rescue, hospital×3, dispatcher]) · fixed templates · responder link (web) + dashboard",
+      on: ["e-td", "a-dispatch", "g-dispatch", "n-guard", "e-police", "e-ems", "e-hosp", "r-police", "r-ems", "r-hosp", "l-alert", "l-alert2"] },
+    { t: 11, who: "Hospital Prep (next build)", title: "Hospitals get ready before patients arrive",
+      body: "For critical cases, on-call specialists are called in and nearby blood donors are asked to come. All eligibility is checked by code. Planned for the build after the 3-hour demo.",
+      data: "call_doctors(trauma_surgeon) · ping_donors([O-, O+]) · eligibility checked by code",
+      on: ["e-dp", "a-prep", "g-prep", "n-guard", "e-doc", "r-doc"] },
+    { t: 12, who: "Voice Coach Agent", title: "A calm voice talks the bystander through first aid",
+      body: "He holds the mic: \"khoon nahi ruk raha\" (the bleeding won't stop). The Voice Coach picks the bleeding card and a calm acknowledgement. The steps themselves are read from a vetted file, never written by the AI.",
+      data: "CoachTurn{intent: switch_card, card: bleeding} → steps from first_aid.json, spoken in Urdu",
+      on: ["n-reporter", "e-coach", "a-coach", "e-status", "l-status"] },
+    { t: 12, who: "Database → dashboard", title: "Every step is visible live",
+      body: "Each agent start, tool call, decision and guardrail block is written to agent_activity and streamed to the dashboard feed and agent lights.",
+      data: "agent_activity → Supabase Realtime → Agent Activity feed + agent lights",
+      on: ["e-write", "l-write", "n-db", "e-rt", "l-rt", "n-dash"] },
+    { t: 24, who: "Hospital → reporter", title: "Acknowledgements flow back",
+      body: "The ER charge nurse taps the green Acknowledge button on the responder link. The reporter's phone shows the hospital tick turning green within 3 seconds.",
+      data: "callback ack:<target_id> · chat must match the hospital's linked chat · first ack wins",
+      on: ["r-hosp", "e-ack", "l-ack", "n-api", "e-status", "l-status", "n-reporter"] },
+    { t: 69, who: "Escalation (next build)", title: "Silence triggers a phone call",
+      body: "If police have not acknowledged after 60 seconds, the escalation job calls the station; pressing 1 acknowledges. Planned for the build after the 3-hour demo (needs Twilio).",
+      data: "ack_due_at ≤ now() → voice call · press 1 → acknowledged · level 2 → backup + dispatcher",
+      on: ["r-police", "e-esc", "l-esc"] },
+    { t: null, who: "Debrief Agent (next build)", title: "After it ends, a report writes itself",
+      body: "When the incident is closed, the Debrief Agent reads the timeline and writes an after-action report: response times, escalations, and what to improve.",
+      data: "Time to first alert 9 s · median ack 31 s · 1 escalation · 11 agent decisions, 2 autopilot",
+      on: ["n-db", "e-debrief", "l-debrief", "a-debrief"] }
+  ];
+  const svg = document.getElementById("diagram");
+  const all = svg.querySelectorAll("[id]");
+  const rail = document.getElementById("rail");
+  const playBtn = document.getElementById("playBtn");
+  const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  let i = 0, timer = null, playing = !reduce;
+
+  steps.forEach((s, k) => {
+    const li = document.createElement("li");
+    const b = document.createElement("button");
+    b.type = "button";
+    b.innerHTML = '<span class="n">' + String(k + 1).padStart(2, "0") + '</span><span class="h"></span><span class="s"></span>';
+    b.querySelector(".h").textContent = s.title;
+    b.querySelector(".s").textContent = s.label ? "before" : (s.t === null ? "on close" : "T+" + s.t + " s");
+    b.addEventListener("click", () => { go(k); stop(); });
+    li.appendChild(b); rail.appendChild(li);
+  });
+  const railBtns = rail.querySelectorAll("button");
+
+  function go(k) {
+    i = (k + steps.length) % steps.length;
+    const s = steps[i];
+    const doneIds = new Set();
+    for (let j = 0; j < i; j++) steps[j].on.forEach(id => doneIds.add(id));
+    const onIds = new Set(s.on);
+    all.forEach(el => {
+      el.classList.toggle("active", onIds.has(el.id));
+      el.classList.toggle("done", !onIds.has(el.id) && doneIds.has(el.id));
+    });
+    document.getElementById("stepNo").textContent = "Step " + (i + 1) + " of " + steps.length;
+    document.getElementById("stepT").textContent = s.label ? s.label : (s.t === null ? "After close" : "T+" + s.t + " s");
+    document.getElementById("stepWho").textContent = s.who;
+    document.getElementById("stepTitle").textContent = s.title;
+    document.getElementById("stepBody").textContent = s.body;
+    document.getElementById("stepData").textContent = s.data;
+    const sec = s.label ? 0 : (s.t === null ? 60 : Math.min(s.t, 60));
+    document.getElementById("clockFill").style.width = (sec / 60 * 100) + "%";
+    document.getElementById("clockLabel").textContent = s.label ? "Prepared before the golden minute starts" : s.t === null
+      ? "Golden minute: complete"
+      : (s.t <= 60 ? "Golden minute: " + s.t + " / 60 s" : "Past the minute: escalation at " + s.t + " s");
+    railBtns.forEach((b, k2) => { if (k2 === i) b.setAttribute("aria-current", "step"); else b.removeAttribute("aria-current"); });
+  }
+  function start() { playing = true; playBtn.textContent = "Pause"; clearInterval(timer); timer = setInterval(() => go(i + 1), 4200); }
+  function stop() { playing = false; playBtn.textContent = "Play"; clearInterval(timer); }
+  playBtn.addEventListener("click", () => playing ? stop() : start());
+  document.getElementById("nextBtn").addEventListener("click", () => { stop(); go(i + 1); });
+  document.getElementById("prevBtn").addEventListener("click", () => { stop(); go(i - 1); });
+  document.addEventListener("keydown", e => {
+    if (e.key === "ArrowRight") { stop(); go(i + 1); }
+    if (e.key === "ArrowLeft") { stop(); go(i - 1); }
+  });
+  go(0);
+  if (playing) start(); else { playBtn.textContent = "Play"; }
+})();
+</script>

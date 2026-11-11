@@ -1,0 +1,44 @@
+.flow-diagram {
+  --panel: #FFFBF2; --panel-hi: #FFE9D6; --ink: #12324A; --muted: #4F6E84; --line: #9DBFD8;
+  --signal: #D6303F; --ok: #2E9E6B; --guard: #B8780C; --guard-fill: #FFF1D0;
+  --font-body: Inter, system-ui, sans-serif; --font-data: ui-monospace, Menlo, monospace;
+  color: var(--ink);
+  filter: drop-shadow(0 0 18px rgba(47, 127, 184, 0.15));
+
+.node rect { fill: var(--panel); stroke: var(--line); stroke-width: 1.4; transition: stroke .3s, fill .3s; }
+.node .t1 { font: 700 13px var(--font-body); fill: var(--ink); }
+.node .t2 { font: 400 11px var(--font-body); fill: var(--muted); }
+.node .chip { font: 500 10px var(--font-data); fill: var(--muted); }
+.node.active rect { stroke: var(--signal); stroke-width: 2.6; fill: var(--panel-hi); }
+.node.done rect { stroke: var(--ok); }
+.agent rect.body { stroke: var(--c); }
+.agent rect.sw { fill: var(--c); stroke: none; }
+.agent.active rect.body { stroke: var(--c); stroke-width: 3; fill: var(--panel-hi); animation: pulse 1.1s ease-in-out infinite; }
+.agent.done rect.body { stroke: var(--c); stroke-width: 2; }
+.agent.dashed rect.body { stroke-dasharray: 5 4; }
+.guard rect { fill: var(--guard-fill); stroke: var(--guard); stroke-width: 1.6; }
+.guard text { font: 600 11px var(--font-data); fill: var(--guard); letter-spacing: .12em; }
+.guard.active rect { stroke-width: 3; animation: pulse 1.1s ease-in-out infinite; }
+.edge { fill: none; stroke: var(--line); stroke-width: 1.5; marker-end: url(#arrow); transition: stroke .3s; }
+.edge.thin { stroke-width: 1; marker-end: none; stroke-dasharray: 2 3; }
+.edge.active { stroke: var(--signal); stroke-width: 2.2; stroke-dasharray: 7 6; animation: flow .55s linear infinite; marker-end: url(#arrowOn); }
+.edge.thin.active { stroke-width: 1.6; marker-end: none; }
+.edge.done { stroke: var(--ok); marker-end: url(#arrowOk); }
+.elabel { font: 500 10.5px var(--font-data); fill: var(--muted); }
+.elabel.active { fill: var(--signal); }
+.arrowhead { fill: var(--line); }
+.arrowhead.on { fill: var(--signal); }
+.arrowhead.ok { fill: var(--ok); }
+.zone { font: 600 10.5px var(--font-data); fill: var(--muted); letter-spacing: .14em; }
+
+
+  /* extra states used by LiveFlow */
+  .agent.autopilot rect.body { stroke: var(--guard); stroke-dasharray: 5 4; stroke-width: 2.4; }
+  .node.blocked rect, .guard.blocked rect { stroke: #FF2D46; stroke-width: 3.2; fill: #FFE0E3; }
+  .agent.blocked rect.body { stroke: #FF2D46; stroke-width: 3.2; }
+}
+@keyframes flow { to { stroke-dashoffset: -13; } }
+@keyframes pulse { 50% { stroke-opacity: .45; } }
+@media (prefers-reduced-motion: reduce) {
+  .flow-diagram .edge.active, .flow-diagram .agent.active rect.body, .flow-diagram .guard.active rect { animation: none; }
+}

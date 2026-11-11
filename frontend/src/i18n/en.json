@@ -1,0 +1,380 @@
+{
+  "app": {
+    "name": "Golden Minute"
+  },
+  "lang": {
+    "en": "EN",
+    "es": "ES",
+    "ur": "اردو"
+  },
+  "responder": {
+    "title": "Alerts",
+    "live": "Live",
+    "empty": "No alerts yet",
+    "keepOpen": "Keep this page open. New alerts appear here by themselves.",
+    "ack": "I am responding",
+    "acked": "Confirmed",
+    "ackedAt": "Confirmed at {{time}}",
+    "openMap": "Open map",
+    "standby": "Standby",
+    "sending": "Sending…",
+    "ackFailed": "Could not confirm. Try again.",
+    "invalid": "This link is not valid",
+    "expired": "This link has expired",
+    "askNew": "Ask the control room for a new link.",
+    "offline": "No connection. Retrying…"
+  },
+  "sos": {
+    "button": "SOS",
+    "subtitle": "Press for emergency",
+    "sending": "Sending in {{n}}…",
+    "cancel": "Cancel",
+    "gettingLocation": "Getting your location…"
+  },
+  "report": {
+    "speak": "Hold to speak",
+    "photo": "Photo",
+    "type": "Type",
+    "placeholder": "What happened? Where?",
+    "recording": "Recording… release to send",
+    "tapToStop": "Tap again to send",
+    "tooShort": "Too short. Hold longer and speak.",
+    "send": "Send",
+    "micDenied": "Microphone is blocked. Use Type.",
+    "failed": "Could not send. Call the number below."
+  },
+  "status": {
+    "alerting": "Help is being alerted",
+    "onTheWay": "Help is on the way",
+    "hospital": "Hospital",
+    "ambulance": "Ambulance",
+    "police": "Police",
+    "fire": "Fire department",
+    "alerted": "Alerted",
+    "acknowledged": "Acknowledged",
+    "title": "Your report",
+    "code": "Incident code",
+    "copied": "Copied",
+    "understood": "What we understood",
+    "processing": "Reading your report…",
+    "failed": "We could not read it. Help is still being alerted.",
+    "in": "in {{n}} s",
+    "pending": "Waiting",
+    "notFound": "Report not found",
+    "home": "Home"
+  },
+  "offline": {
+    "saved": "Saved on your phone – will send when connected"
+  },
+  "location": {
+    "getting": "Getting your location…",
+    "ask": "Where are you? (landmark/area)",
+    "chip": "📍 {{label}} · {{number}}"
+  },
+  "silent": {
+    "toggle": "Silent mode",
+    "hold": "Hold 2s"
+  },
+  "firstaid": {
+    "disclaimer": "Follow responders' instructions. This is basic guidance only."
+  },
+  "danger": {
+    "optin": "Warn me about danger nearby"
+  },
+  "family": {
+    "link": "Find a family member"
+  },
+  "join": {
+    "link": "Become a donor/volunteer"
+  },
+  "followup": {
+    "send": "Send"
+  },
+  "nearby": {
+    "title": "Nearest hospitals",
+    "loading": "Finding hospitals near you…",
+    "empty": "No hospitals found nearby. Call {{number}}."
+  },
+  "safety": {
+    "promise": "You are helping. You do not need to give your name or phone. You will not be questioned or blamed."
+  },
+  "listen": {
+    "button": "Listen",
+    "unavailable": "No voice on this phone for this language",
+    "stop": "Stop"
+  },
+  "card": {
+    "title": "Emergency Card",
+    "new": "Make my emergency card",
+    "speakPrompt": "Hold and speak: your name, blood group and a family number",
+    "bloodGroup": "Blood group",
+    "dontKnow": "I don't know",
+    "allergy": "Allergy to food or medicine?",
+    "none": "None",
+    "family": "Family number",
+    "confirmQ": "Is this correct?",
+    "save": "Yes, save",
+    "change": "Change",
+    "consent": "Anyone who scans this card will see these details",
+    "showPhone": "Show my family number to people who scan",
+    "scanIfHurt": "Scan if I am hurt",
+    "getHelp": "Get help",
+    "callFamily": "Call family",
+    "inactive": "This card is no longer active",
+    "name": "Your name",
+    "next": "Next",
+    "back": "Back",
+    "relation": "Who is this? (brother, father…)",
+    "contactName": "Family member name",
+    "phone": "Their phone number",
+    "created": "Your card is ready",
+    "print": "Print",
+    "scanUrl": "The sticker opens this page",
+    "step": "Step {{n}} of {{total}}",
+    "error": "Could not save. Check the phone number."
+  },
+  "place": {
+    "new": "Prepare my place",
+    "pressForHelp": "Press for help",
+    "type": {
+      "home": "Home",
+      "shop": "Shop",
+      "school": "School",
+      "mosque": "Mosque",
+      "factory": "Factory",
+      "office": "Office",
+      "other": "Other"
+    }
+  },
+  "coach": {
+    "button": "Talk me through it",
+    "next": "Next",
+    "repeat": "Repeat",
+    "hold": "Hold to speak",
+    "call": "Call {{number}}",
+    "title": "First aid",
+    "step": "Step {{n}} of {{total}}",
+    "listen": "Read it to me",
+    "done": "Done",
+    "metronome": "CPR beat",
+    "metronomeStop": "Stop beat",
+    "disclaimer": "Follow responders' instructions. This is basic guidance only."
+  },
+  "landmark": {
+    "heading": "Help is coming to:"
+  },
+  "ride": {
+    "areYouOk": "Are you OK?",
+    "imOk": "I'M OK"
+  },
+  "home": {
+    "callNow": "Call for help",
+    "safetyTitle": "You are safe to help"
+  },
+  "dash": {
+    "title": "Dashboard",
+    "active": "Active",
+    "review": "Review",
+    "closed": "Closed",
+    "none": "No incidents yet",
+    "signOut": "Sign out",
+    "live": "Live",
+    "connecting": "Connecting…",
+    "offline": "Offline",
+    "feed": "Agent activity",
+    "filterAll": "All",
+    "filterIncident": "This incident",
+    "noActivity": "No agent activity yet",
+    "verify": "Verify",
+    "dismiss": "Dismiss",
+    "close": "Close incident",
+    "dismissReason": "Dismissed by dispatcher",
+    "actionFailed": "Action failed",
+    "summary": "Summary",
+    "casualties": "Casualties",
+    "injuries": "Injuries",
+    "needs": "Needs",
+    "confidence": "Confidence",
+    "danger": "Danger may be ongoing",
+    "silentReport": "Silent report",
+    "targets": "Alert targets",
+    "assignments": "Hospital assignments",
+    "reportsList": "Reports",
+    "timeline": "Timeline",
+    "recipient": "Recipient",
+    "status": "Status",
+    "ackAt": "Acknowledged",
+    "hospital": "Hospital",
+    "patients": "Patients",
+    "criticalCount": "Critical",
+    "eta": "ETA",
+    "overCapacity": "over capacity",
+    "standby": "standby",
+    "noReports": "No reports",
+    "map": "Map",
+    "beds": "{{n}} free beds",
+    "agentsAutopilot": "autopilot",
+    "newIncident": "New incident {{code}}",
+    "incidentsTab": "Incidents",
+    "homeNav": "Home",
+    "liveMapNav": "Live Map",
+    "feedNav": "Agent Activity",
+    "flowNav": "Live Flow",
+    "needHelp": "Need Help?",
+    "callRescue": "Call 1122",
+    "kpiActive": "Active Incidents",
+    "kpiAlert": "Avg Time to First Alert",
+    "kpiAck": "Acknowledged Rate",
+    "kpiReports": "Reports Received",
+    "heroTitle1": "A safer city,",
+    "heroTitle2": "in just a minute.",
+    "heroSub": "Report emergencies quickly. Let us handle the rest.",
+    "tagline": "Report • Respond • Stay Safe",
+    "reportEmergency": "Report Emergency",
+    "tapToStart": "Tap to start reporting",
+    "voiceReport": "Voice Report",
+    "textReport": "Text Report",
+    "liveMapTitle": "Live Incident Map",
+    "liveIncidents": "Live Incidents",
+    "safetyTitle": "Your safety matters.",
+    "safetyBody": "In case of an emergency, stay calm and share your exact location.",
+    "minutes": "{{n}} min",
+    "seconds": "{{n}} s",
+    "guideNav": "User Guide",
+    "controlNav": "Control Room",
+    "legend": {
+      "hospital": "Hospital",
+      "police": "Police",
+      "rescue": "Rescue / EMS",
+      "fire": "Fire",
+      "unacked": "Ring = waiting for acknowledgement"
+    }
+  },
+  "login": {
+    "title": "Responder sign in",
+    "email": "Email",
+    "password": "Password",
+    "submit": "Sign in",
+    "error": "Wrong email or password",
+    "forbidden": "This account is not a responder",
+    "chooseTitle": "Who are you?",
+    "chooseSub": "Choose how you want to use Golden Minute",
+    "roleDispatcher": "Dispatcher",
+    "roleDispatcherDesc": "Verify incidents and coordinate responders. Login required.",
+    "roleBystander": "Bystander",
+    "roleBystanderDesc": "Report an emergency right now. No login.",
+    "roleControl": "Control Room",
+    "roleControlDesc": "Humans check that every agent works correctly. Login required.",
+    "dispatcherTitle": "Dispatcher sign in",
+    "controlTitle": "Control Room sign in",
+    "back": "Back",
+    "notControl": "This account is not a control room account",
+    "legend": {
+      "reporter": "Bystander report",
+      "incident": "Incident",
+      "hospital": "Hospital",
+      "route": "Alert route"
+    }
+  },
+  "need": {
+    "ambulance": "Ambulance",
+    "police": "Police",
+    "fire": "Fire",
+    "rescue": "Rescue"
+  },
+  "targetStatus": {
+    "queued": "Queued",
+    "sent": "Alerted",
+    "delivered": "Delivered",
+    "acknowledged": "Acknowledged",
+    "escalated": "Escalating",
+    "no_response": "No response",
+    "failed": "Failed"
+  },
+  "incidentStatus": {
+    "review": "Review",
+    "unverified": "Unverified",
+    "verified": "Verified",
+    "closed": "Closed",
+    "dismissed": "Dismissed"
+  },
+  "agent": {
+    "orchestrator": "Orchestrator",
+    "intake": "Intake",
+    "verification": "Verification",
+    "triage": "Triage",
+    "dispatch": "Dispatch",
+    "hospital_prep": "Hospital Prep",
+    "debrief": "Debrief",
+    "landmark": "Landmark",
+    "voice_coach": "Voice Coach",
+    "preparedness": "Preparedness"
+  },
+  "incidentType": {
+    "attack_shooting": "Shooting / attack",
+    "explosion": "Explosion",
+    "fire": "Fire",
+    "road_accident": "Road accident",
+    "building_collapse": "Building collapse",
+    "medical": "Medical emergency",
+    "riot_crowd": "Crowd / riot",
+    "flood": "Flood",
+    "other": "Emergency"
+  },
+  "severity": {
+    "low": "Low",
+    "medium": "Medium",
+    "high": "High",
+    "critical": "Critical"
+  },
+  "injury": {
+    "gunshot": "gunshot",
+    "blast_shrapnel": "blast injuries",
+    "burns": "burns",
+    "fracture": "fractures",
+    "head_injury": "head injury",
+    "bleeding": "bleeding",
+    "crush": "crush injuries",
+    "smoke_inhalation": "smoke inhalation",
+    "drowning": "drowning",
+    "cardiac": "cardiac",
+    "unconscious": "unconscious",
+    "breathing_difficulty": "breathing difficulty",
+    "unknown": "unknown"
+  },
+  "flow": {
+    "title": "Live Flow",
+    "live": "Live",
+    "replay": "Replay",
+    "incident": "Incident",
+    "allIncidents": "All incidents",
+    "play": "Play",
+    "log": "Live log",
+    "waiting": "Waiting for agent activity… send a report.",
+    "pressReplay": "Pick an incident and press Play."
+  },
+  "control": {
+    "title": "Control Room",
+    "subtitle": "Check that every agent is working correctly",
+    "agentHealth": "Agent health",
+    "decisions": "AI decisions",
+    "autopilot": "Autopilot",
+    "blocks": "Guardrail blocks",
+    "errors": "Errors",
+    "latency": "Avg speed",
+    "lastModel": "Last model",
+    "lastSeen": "Last activity",
+    "healthy": "Healthy",
+    "degraded": "Mostly autopilot",
+    "attention": "Needs attention",
+    "idle": "No activity yet",
+    "reviewQueue": "Human review queue",
+    "reviewHelp": "Rows where a guardrail blocked an agent, an agent failed, or autopilot took over. Mark them once a person has checked.",
+    "reviewed": "Reviewed",
+    "showReviewed": "Show reviewed",
+    "queueEmpty": "Nothing to review. All agents are behaving.",
+    "reviewNote": "Review marks are saved in this browser only.",
+    "dashboardLink": "Dispatcher dashboard",
+    "controlNav": "Control Room"
+  }
+}

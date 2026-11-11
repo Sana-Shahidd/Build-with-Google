@@ -1,0 +1,344 @@
+{
+  "incident_type": {
+    "attack_shooting": [
+      "shooting",
+      "shots",
+      "gunfire",
+      "shooter",
+      "gunman",
+      "gunmen",
+      "tiroteo",
+      "disparos",
+      "balacera",
+      "firing",
+      "goli",
+      "goliyan",
+      "hamla",
+      "فائرنگ",
+      "گولی",
+      "حملہ"
+    ],
+    "explosion": [
+      "explosion",
+      "blast",
+      "bomb",
+      "explosión",
+      "explosion",
+      "bomba",
+      "dhamaka",
+      "cylinder phat",
+      "دھماکہ",
+      "دھماکا",
+      "بم"
+    ],
+    "fire": [
+      "fire",
+      "burning",
+      "smoke",
+      "incendio",
+      "fuego",
+      "humo",
+      "aag",
+      "jal raha",
+      "dhuan",
+      "آگ",
+      "دھواں"
+    ],
+    "road_accident": [
+      "crash",
+      "collision",
+      "car accident",
+      "choque",
+      "accidente",
+      "takkar",
+      "ulat gayi",
+      "حادثہ",
+      "ٹکر"
+    ],
+    "building_collapse": [
+      "collapse",
+      "collapsed",
+      "derrumbe",
+      "se cayó el edificio",
+      "gir gayi",
+      "malba",
+      "عمارت",
+      "ملبہ"
+    ],
+    "medical": [
+      "heart attack",
+      "unconscious",
+      "fainted",
+      "not breathing",
+      "infarto",
+      "inconsciente",
+      "behosh",
+      "بے ہوش",
+      "دل کا دورہ"
+    ],
+    "riot_crowd": [
+      "stampede",
+      "crowd crush",
+      "riot",
+      "mob",
+      "estampida",
+      "multitud",
+      "bhagdar",
+      "hungama",
+      "بھگدڑ",
+      "ہنگامہ"
+    ],
+    "flood": [
+      "flood",
+      "flooding",
+      "inundación",
+      "selaab",
+      "pani bhar",
+      "سیلاب"
+    ]
+  },
+  "injury_types": {
+    "gunshot": [
+      "shot",
+      "gunshot",
+      "disparo",
+      "herido de bala",
+      "goli",
+      "گولی"
+    ],
+    "blast_shrapnel": [
+      "explosion",
+      "blast",
+      "explosión",
+      "dhamaka",
+      "دھماکہ"
+    ],
+    "burns": [
+      "burn",
+      "quemad",
+      "jal",
+      "جل"
+    ],
+    "bleeding": [
+      "bleeding",
+      "blood",
+      "sangr",
+      "khoon",
+      "خون"
+    ],
+    "fracture": [
+      "broken",
+      "fracture",
+      "fractura",
+      "roto",
+      "haddi",
+      "ہڈی"
+    ],
+    "head_injury": [
+      "head",
+      "cabeza",
+      "sar",
+      "سر"
+    ],
+    "unconscious": [
+      "unconscious",
+      "inconsciente",
+      "behosh",
+      "بے ہوش"
+    ],
+    "smoke_inhalation": [
+      "smoke",
+      "humo",
+      "dhuan",
+      "دھواں"
+    ],
+    "crush": [
+      "crushed",
+      "trampled",
+      "aplastad",
+      "pisotead",
+      "dab gaye",
+      "دب"
+    ],
+    "drowning": [
+      "drown",
+      "ahog",
+      "doob",
+      "ڈوب"
+    ],
+    "cardiac": [
+      "heart",
+      "corazón",
+      "infarto",
+      "dil",
+      "دل"
+    ]
+  },
+  "coach_intents": {
+    "next": [
+      "next",
+      "ok",
+      "okay",
+      "done that",
+      "agla",
+      "aage",
+      "theek hai",
+      "ho gaya",
+      "اگلا",
+      "ہو گیا",
+      "ٹھیک ہے",
+      "siguiente",
+      "listo"
+    ],
+    "repeat": [
+      "repeat",
+      "again",
+      "say again",
+      "dobara",
+      "phir se",
+      "samajh nahi",
+      "دوبارہ",
+      "پھر سے",
+      "otra vez",
+      "repite"
+    ],
+    "previous": [
+      "back",
+      "previous",
+      "pichla",
+      "پچھلا",
+      "anterior"
+    ],
+    "call_help": [
+      "call",
+      "ambulance",
+      "emergency number",
+      "1122",
+      "ایمبولینس",
+      "llamar",
+      "ambulancia"
+    ],
+    "done": [
+      "stop",
+      "finished",
+      "ambulance is here",
+      "ambulance aa gayi",
+      "ایمبولینس آ گئی",
+      "ya llegó",
+      "ya llego"
+    ]
+  },
+  "coach_cards": {
+    "cardiac": [
+      "not breathing",
+      "no pulse",
+      "heart stopped",
+      "saans nahi",
+      "dil band",
+      "سانس نہیں",
+      "دل بند",
+      "no respira",
+      "paro"
+    ],
+    "bleeding": [
+      "bleeding",
+      "blood",
+      "khoon",
+      "khoon nahi ruk",
+      "خون",
+      "sangre",
+      "sangrado"
+    ],
+    "unconscious": [
+      "unconscious",
+      "not responding",
+      "behosh",
+      "بے ہوش",
+      "inconsciente"
+    ],
+    "breathing": [
+      "can't breathe",
+      "choking",
+      "saans phool",
+      "saans lene",
+      "سانس لینے",
+      "no puede respirar"
+    ],
+    "burns": [
+      "burn",
+      "jal gaya",
+      "jal gayi",
+      "جل",
+      "quemadura",
+      "quemad"
+    ],
+    "fracture": [
+      "broken",
+      "bone",
+      "haddi",
+      "ہڈی",
+      "fractura",
+      "roto"
+    ],
+    "head_injury": [
+      "head",
+      "sar pe",
+      "sar mein",
+      "سر",
+      "cabeza"
+    ],
+    "smoke": [
+      "smoke",
+      "dhuan",
+      "دھواں",
+      "humo"
+    ],
+    "drowning": [
+      "drown",
+      "doob",
+      "ڈوب",
+      "se ahoga"
+    ],
+    "crush": [
+      "stuck",
+      "trapped",
+      "dab gaya",
+      "dab gaye",
+      "دب",
+      "atrapad"
+    ]
+  },
+  "coach_banned": [
+    "mg",
+    "ml",
+    "tablet",
+    "dose",
+    "medicine",
+    "paracetamol",
+    "aspirin",
+    "ibuprofen",
+    "دوا",
+    "خوراک",
+    "ٹیبلیٹ",
+    "پیراسیٹامول"
+  ],
+  "many_words": [
+    "many people",
+    "lots of people",
+    "muchas personas",
+    "muchos heridos",
+    "bohat log",
+    "bahut log",
+    "kai log",
+    "بہت لوگ",
+    "کئی لوگ"
+  ],
+  "some_words": [
+    "some people",
+    "a few people",
+    "varias personas",
+    "algunas personas",
+    "kuch log",
+    "کچھ لوگ"
+  ]
+}

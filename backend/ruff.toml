@@ -1,0 +1,2 @@
+[lint]
+ignore = ["B008"]  # FastAPI Depends()/Form()/File() defaults are the framework idiom

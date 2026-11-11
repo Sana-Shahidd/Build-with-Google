@@ -1,0 +1,11 @@
+.env
+backend/.venv/
+frontend/node_modules/
+frontend/dist/
+__pycache__/
+*.pyc
+backend/control_room_login.txt
+
+.pytest_cache/
+.ruff_cache/
+*.log
